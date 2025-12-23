@@ -69,16 +69,19 @@ docs(readme): update installation instructions
 ## Development Setup
 
 1. Clone your fork
+
    ```bash
    git clone https://github.com/YOUR_USERNAME/General-Setup-NextJs.git
    ```
 
 2. Install dependencies
+
    ```bash
    npm install
    ```
 
 3. Create a branch
+
    ```bash
    git checkout -b feature/my-feature
    ```
@@ -86,11 +89,13 @@ docs(readme): update installation instructions
 4. Make your changes and test thoroughly
 
 5. Run linting
+
    ```bash
    npm run lint
    ```
 
 6. Commit your changes
+
    ```bash
    git commit -m "feat: add new feature"
    ```

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
 - Initial project structure with organized folders
 - ESLint configuration
 - Prettier configuration
@@ -18,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-12-03
 
 ### Added
+
 - Initial release
 - Next.js project setup
 - Organized folder structure for scalable development

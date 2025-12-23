@@ -1,1 +1,93 @@
 @import 'tailwindcss';
+@custom-variant dark (&:is(.dark, .dark *));
+
+:root {
+  /* TODO Add color vars */
+}
+
+.dark {
+  /* TODO Dark theme colors will be modified later */
+}
+
+@theme {
+  /* TODO Add color vars into theme colors */
+}
+
+body {
+  font-family: var(--font-permanent-marker), var(--font-just-sans), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 0.5em;
+  /* color: ; */
+}
+
+h1 {
+  font-size: 2.25rem;
+} /* 36px */
+h2 {
+  font-size: 1.875rem;
+} /* 30px */
+h3 {
+  font-size: 1.5rem;
+} /* 24px */
+h4 {
+  font-size: 1.25rem;
+} /* 20px */
+h5 {
+  font-size: 1.125rem;
+} /* 18px */
+h6 {
+  font-size: 1rem;
+} /* 16px */
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  /* color: ; */
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+/* -----------------------------
+   Links
+------------------------------ */
+
+a {
+  /* color: ; */
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 150ms ease;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}

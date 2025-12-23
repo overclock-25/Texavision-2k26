@@ -1,6 +1,6 @@
-import { defineConfig, globalIgnores } from 'eslint/config'
-import nextVitals from 'eslint-config-next/core-web-vitals'
-import prettier from 'eslint-config-prettier'
+import { defineConfig, globalIgnores } from 'eslint/config';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import prettier from 'eslint-config-prettier';
 
 const eslintConfig = defineConfig([
   ...nextVitals,
@@ -21,6 +21,6 @@ const eslintConfig = defineConfig([
       'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }], // Allow unused args starting with _
     },
   },
-])
+]);
 
-export default eslintConfig
+export default eslintConfig;
