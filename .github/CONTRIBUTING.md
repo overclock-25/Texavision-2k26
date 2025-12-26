@@ -4,7 +4,7 @@ First off, thank you for considering contributing to this project! 🎉
 
 ## Code of Conduct
 
-By participating in this project, you are expected to uphold a respectful and inclusive environment.
+By participating in this project, you are expected to uphold a respectful and inclusive environment. Please read our [Code of Conduct](CODE_OF_CONDUCT.md) for more details.
 
 ## How Can I Contribute?
 
