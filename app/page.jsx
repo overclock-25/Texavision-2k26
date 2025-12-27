@@ -4,11 +4,18 @@ import Merch from '@/components/sections/home/merch/Merch';
 import Performances from '@/components/sections/home/performances/Performances';
 import Sponsors from '@/components/sections/home/sponsors/Sponsors';
 import Timeline from '@/components/sections/home/timeline/Timeline';
+import Header from '@/components/shared/texts/Header';
 const Home = () => {
   return (
     <>
       <Hero />
       <Sponsors />
+      <Header
+        heading="Timeline"
+        bgColorClass={'bg-sand'}
+        textColorClass={'text-sand'}
+        brushColor={'#000000'}
+      />
       <Timeline />
       <Performances />
       <Merch />
