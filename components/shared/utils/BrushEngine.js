@@ -1,0 +1,278 @@
+export function getSplinePoints(points, tension = 0.5, numOfSeg = 25, close = false) {
+  // options or defaults
+  tension = typeof tension === 'number' ? tension : 0.5;
+  numOfSeg = typeof numOfSeg === 'number' ? numOfSeg : 25;
+
+  var pts, // for cloning point array
+    i = 1,
+    l = points.length,
+    rPos = 0,
+    rLen = (l - 2) * numOfSeg + 2 + (close ? 2 * numOfSeg : 0),
+    res = new Float32Array(rLen),
+    cache = new Float32Array((numOfSeg + 2) * 4),
+    cachePtr = 4;
+
+  pts = points.slice(0);
+
+  if (close) {
+    pts.unshift(points[l - 1]); // insert end point as first point
+    pts.unshift(points[l - 2]);
+    pts.push(points[0], points[1]); // first point as last point
+  } else {
+    pts.unshift(points[1]); // copy 1. point and insert at beginning
+    pts.unshift(points[0]);
+    pts.push(points[l - 2], points[l - 1]); // duplicate end-points
+  }
+
+  // cache inner-loop calculations as they are based on t alone
+  cache[0] = 1; // 1,0,0,0
+
+  for (; i < numOfSeg; i++) {
+    var st = i / numOfSeg,
+      st2 = st * st,
+      st3 = st2 * st,
+      st23 = st3 * 2,
+      st32 = st2 * 3;
+
+    cache[cachePtr++] = st23 - st32 + 1; // c1
+    cache[cachePtr++] = st32 - st23; // c2
+    cache[cachePtr++] = st3 - 2 * st2 + st; // c3
+    cache[cachePtr++] = st3 - st2; // c4
+  }
+
+  cache[++cachePtr] = 1; // 0,1,0,0
+
+  // calc. points
+  parse(pts, cache, l, tension);
+
+  if (close) {
+    pts = [];
+    pts.push(
+      points[l - 4],
+      points[l - 3],
+      points[l - 2],
+      points[l - 1], // second last and last
+      points[0],
+      points[1],
+      points[2],
+      points[3]
+    ); // first and second
+    parse(pts, cache, 4, tension);
+  }
+
+  function parse(pts, cache, l, tension) {
+    for (var i = 2, t; i < l; i += 2) {
+      var pt1 = pts[i],
+        pt2 = pts[i + 1],
+        pt3 = pts[i + 2],
+        pt4 = pts[i + 3],
+        t1x = (pt3 - pts[i - 2]) * tension,
+        t1y = (pt4 - pts[i - 1]) * tension,
+        t2x = (pts[i + 4] - pt1) * tension,
+        t2y = (pts[i + 5] - pt2) * tension,
+        c = 0,
+        c1,
+        c2,
+        c3,
+        c4;
+
+      for (t = 0; t < numOfSeg; t++) {
+        c1 = cache[c++];
+        c2 = cache[c++];
+        c3 = cache[c++];
+        c4 = cache[c++];
+
+        res[rPos++] = c1 * pt1 + c2 * pt3 + c3 * t1x + c4 * t2x;
+        res[rPos++] = c1 * pt2 + c2 * pt4 + c3 * t1y + c4 * t2y;
+      }
+    }
+  }
+
+  // add last point
+  l = close ? 0 : points.length - 2;
+  res[rPos++] = points[l++];
+  res[rPos] = points[l];
+
+  return res;
+}
+
+export function generateRandomPoints(num = 10, width, height) {
+  var numPoints = num || 10;
+  var points = [];
+  for (var i = 0; i < numPoints; i++) {
+    points.push(
+      (width * Math.random() * 0.9 + width * 0.05) | 0,
+      (height * Math.random() * 0.9 + height * 0.05) | 0
+    );
+  }
+  return points;
+}
+
+class Hair {
+  constructor(x, y, inkAmount, color) {
+    this.x = x;
+    this.y = y;
+    this.inkAmount = inkAmount;
+    this.color = color;
+    this.latestPos = { x, y };
+  }
+  render(ctx, dx, dy, speed) {
+    this.latestPos = { x: this.x, y: this.y };
+    this.x += dx;
+    this.y += dy;
+    let n = speed ? this.inkAmount / speed : 0;
+    n = Math.min(Math.max(n, 0), 1);
+
+    ctx.save();
+    ctx.lineCap = ctx.lineJoin = 'round';
+    ctx.strokeStyle = this.color;
+    ctx.lineWidth = this.inkAmount * n;
+    ctx.beginPath();
+    ctx.moveTo(this.latestPos.x, this.latestPos.y);
+    ctx.lineTo(this.x, this.y);
+    ctx.stroke();
+    ctx.restore();
+  }
+}
+
+class Drop {
+  constructor(x, y, size, color, strokeId) {
+    this.x = x;
+    this.y = y;
+    this.size = size;
+    this.color = color;
+    this.strokeId = strokeId;
+    this.life = 1.5 * size;
+    this.latestPos = { x, y };
+    this.xOffRatio = 0;
+  }
+  render(ctx) {
+    if (Math.random() < 0.03) this.xOffRatio += Math.random() * 0.06 - 0.03;
+    else if (Math.random() < 0.1) this.xOffRatio *= 0.003;
+
+    this.latestPos = { x: this.x, y: this.y };
+    this.x += this.life * this.xOffRatio;
+    this.y += 0.5 * this.life * Math.random();
+    this.life -= Math.random() * 0.04 + 0.01;
+
+    ctx.save();
+    ctx.lineCap = ctx.lineJoin = 'round';
+    ctx.strokeStyle = this.color;
+    ctx.lineWidth = this.size + 0.3 * this.life;
+    ctx.beginPath();
+    ctx.moveTo(this.latestPos.x, this.latestPos.y);
+    ctx.lineTo(this.x, this.y);
+    ctx.stroke();
+    ctx.restore();
+  }
+}
+
+export class BrushEngine {
+  constructor(canvas, options = {}) {
+    this.ctx = canvas.getContext('2d');
+    this.options = {
+      size: 35,
+      inkAmount: 7,
+      splashing: true,
+      dripping: true,
+      color: '#000',
+      angle: 0,
+      ...options,
+    };
+    this.x = 0;
+    this.y = 0;
+    this.latestPos = { x: 0, y: 0 };
+    this.drops = [];
+    this.tip = [];
+    this.strokeId = null;
+  }
+
+  startStroke(x, y) {
+    this.x = x;
+    this.y = y;
+    this.latestPos = { x, y };
+    this.strokeId = Math.random().toString(36).substr(2, 9);
+    this._resetTip();
+  }
+
+  _resetTip() {
+    this.tip = [];
+    const radius = this.options.size * 0.5;
+    let count = Math.floor((Math.PI * radius * radius) / this.options.inkAmount);
+    count = Math.max(1, Math.min(1000, count));
+
+    for (let i = 0; i < count; i++) {
+      const t = radius * Math.random();
+      const s = 2 * Math.PI * Math.random();
+      const n = t * Math.sin(s);
+      const o = t * 0.5 * Math.cos(s);
+      const a = Math.cos(this.options.angle);
+      const h = Math.sin(this.options.angle);
+      this.tip.push(
+        new Hair(
+          this.x + n * a - o * h,
+          this.y + n * h + o * a,
+          this.options.inkAmount,
+          this.options.pattern || this.options.color
+        )
+      );
+    }
+  }
+
+  render(x, y) {
+    const dx = x - this.x;
+    const dy = y - this.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    this.x = x;
+    this.y = y;
+
+    // Update existing drops
+    for (let i = 0; i < this.drops.length; i++) {
+      const drop = this.drops[i];
+      if (drop.life <= 0) {
+        this.drops.splice(i, 1);
+        i--;
+      } else {
+        drop.render(this.ctx);
+      }
+    }
+
+    // Splashing
+    if (this.options.splashing && dist > 75) {
+      const count = Math.floor((dist - 75) * 0.5 * Math.random());
+      this.ctx.save();
+      this.ctx.fillStyle = this.options.color;
+      this.ctx.beginPath();
+      for (let i = 0; i < count; i++) {
+        const p = (dist - 1) * Math.random() + 1;
+        const angle = 2 * Math.PI * Math.random();
+        const r = 5 * Math.random();
+        const sx = this.x + p * Math.sin(angle);
+        const sy = this.y + p * Math.cos(angle);
+        this.ctx.moveTo(sx + r, sy);
+        this.ctx.arc(sx, sy, r, 0, 2 * Math.PI);
+      }
+      this.ctx.fill();
+      this.ctx.restore();
+    }
+    // Dripping
+    else if (this.options.dripping && dist < 2 * this.options.inkAmount && Math.random() < 0.05) {
+      this.drops.push(
+        new Drop(
+          this.x,
+          this.y,
+          0.5 * (this.options.size + this.options.inkAmount) * (0.15 * Math.random() + 0.1),
+          this.options.color,
+          this.strokeId
+        )
+      );
+    }
+
+    // Render Hairs
+    this.tip.forEach((h) => h.render(this.ctx, dx, dy, dist));
+  }
+
+  endStroke() {
+    this.strokeId = null;
+  }
+}
