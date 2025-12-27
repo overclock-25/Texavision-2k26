@@ -1,40 +1,4 @@
-// brush-utils.js
-// export function getSplinePoints(points, tension = 0.5, numOfSegments = 25) {
-//   const res = [];
-//   const _points = [...points];
-
-//   // Duplicate start/end for spline math
-//   _points.unshift(points[0], points[1]);
-//   _points.push(points[points.length - 2], points[points.length - 1]);
-
-//   for (let i = 2; i < _points.length - 4; i += 2) {
-//     for (let t = 0; t <= numOfSegments; t++) {
-//       const st = t / numOfSegments;
-//       const st2 = st * st;
-//       const st3 = st2 * st;
-
-//       const t1x = (_points[i + 2] - _points[i - 2]) * tension;
-//       const t1y = (_points[i + 3] - _points[i - 1]) * tension;
-//       const t2x = (_points[i + 4] - _points[i]) * tension;
-//       const t2y = (_points[i + 5] - _points[i + 1]) * tension;
-
-//       const c1 = 2 * st3 - 3 * st2 + 1;
-//       const c2 = -2 * st3 + 3 * st2;
-//       const c3 = st3 - 2 * st2 + st;
-//       const c4 = st3 - st2;
-
-//       res.push(
-//         c1 * _points[i] + c2 * _points[i + 2] + c3 * t1x + c4 * t2x,
-//         c1 * _points[i + 1] + c2 * _points[i + 3] + c3 * t1y + c4 * t2y
-//       );
-//     }
-//   }
-//   return res;
-// }
-
 export function getSplinePoints(points, tension = 0.5, numOfSeg = 25, close = false) {
-  // 'use strict';
-
   // options or defaults
   tension = typeof tension === 'number' ? tension : 0.5;
   numOfSeg = typeof numOfSeg === 'number' ? numOfSeg : 25;
@@ -133,16 +97,6 @@ export function getSplinePoints(points, tension = 0.5, numOfSeg = 25, close = fa
 }
 
 export function generateRandomPoints(num = 10, width, height) {
-  // {
-  //   const res = [];
-  //   for (let i = 0; i < count; i++) {
-  //     res.push(
-  //       (width * Math.random() * 0.9 + 0.05 * width) | 0,
-  //       (height * Math.random() * 0.9 + 0.05 * height) | 0
-  //     );
-  //   }
-  //   return res;
-  // }
   var numPoints = num || 10;
   var points = [];
   for (var i = 0; i < numPoints; i++) {
