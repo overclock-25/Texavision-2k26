@@ -112,7 +112,9 @@ export default function BrushSwipeAnimation() {
                   className={`animation-image-${index} absolute h-auto w-full ${index % 2 !== 0 ? 'scale-x-[-1]' : ''}`}
                   src="/brush-stroke.png"
                   alt="Brush stroke"
-                  style={{ mixBlendMode: 'multiply' }}
+                  style={{
+                    mixBlendMode: 'multiply',
+                  }}
                   height={10000}
                   width={10000}
                 />
