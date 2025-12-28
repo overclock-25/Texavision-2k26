@@ -28,7 +28,12 @@ export function useBrushstroke(canvasRef, globalOptions = {}) {
         if (mergedParams.image) {
           const img = new Image();
           img.src = mergedParams.image;
-          await new Promise((r) => (img.onload = r));
+          await new Promise((resolve, reject) => {
+            img.onload = () => resolve();
+            img.onerror = (error) => {
+              reject(error || new Error('Failed to load image'));
+            };
+          });
 
           if (mergedParams.color) {
             const offCanvas = document.createElement('canvas');
@@ -112,6 +117,12 @@ export function useBrushstroke(canvasRef, globalOptions = {}) {
 
   return {
     draw,
-    clear: () => canvasRef.current?.getContext('2d').clearRect(0, 0, 9999, 9999),
+    clear: () => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    },
   };
 }

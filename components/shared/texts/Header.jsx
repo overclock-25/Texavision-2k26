@@ -9,30 +9,36 @@ const Header = ({ bgColorClass, textColorClass, brushColor, heading }) => {
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (hasAnimated) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
+        if (entry.isIntersecting) {
           setHasAnimated(true);
+          if (containerRef.current) {
+            observer.unobserve(containerRef.current);
+          }
+          observer.disconnect();
         }
       },
       { threshold: 0.3 }
     );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    const current = containerRef.current;
+    if (current) {
+      observer.observe(current);
     }
-
-    return () => observer.disconnect();
-  }, [hasAnimated]);
+    return () => {
+      if (current) {
+        observer.unobserve(current);
+      }
+      observer.disconnect();
+    };
+  }, []);
 
   // Initialize the brush hook with desired options for a realistic white stroke
   const { draw } = useBrushstroke(canvasRef, {
     color: brushColor || '#ffffff', // White paint
     inkAmount: 20, // High ink amount for solid coverage
     size: 50, // Brush size
-    splashing: true, // Add some splashes for realism
+    splashing: false, // Add some splashes for realism
     dripping: false, // Disable dripping for a cleaner background look
     tension: 0.5, // Curve tension
   });
@@ -82,6 +88,7 @@ const Header = ({ bgColorClass, textColorClass, brushColor, heading }) => {
         ref={canvasRef}
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform"
         style={{ width: '100%', maxWidth: '1000px', height: 'auto' }}
+        aria-hidden="true"
       ></canvas>
 
       {/* Text layer */}

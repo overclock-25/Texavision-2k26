@@ -1,105 +1,39 @@
-export function getSplinePoints(points, tension = 0.5, numOfSeg = 25, close = false) {
-  // options or defaults
-  tension = typeof tension === 'number' ? tension : 0.5;
-  numOfSeg = typeof numOfSeg === 'number' ? numOfSeg : 25;
+export function getSplinePoints(points, tension = 0.5, numOfSegments = 25) {
+  const res = [];
+  const _points = [...points];
 
-  var pts, // for cloning point array
-    i = 1,
-    l = points.length,
-    rPos = 0,
-    rLen = (l - 2) * numOfSeg + 2 + (close ? 2 * numOfSeg : 0),
-    res = new Float32Array(rLen),
-    cache = new Float32Array((numOfSeg + 2) * 4),
-    cachePtr = 4;
+  // Duplicate start/end for spline math
+  _points.unshift(points[0], points[1]);
+  _points.push(points[points.length - 2], points[points.length - 1]);
 
-  pts = points.slice(0);
+  for (let i = 2; i < _points.length - 4; i += 2) {
+    for (let t = 0; t <= numOfSegments; t++) {
+      const st = t / numOfSegments;
+      const st2 = st * st;
+      const st3 = st2 * st;
 
-  if (close) {
-    pts.unshift(points[l - 1]); // insert end point as first point
-    pts.unshift(points[l - 2]);
-    pts.push(points[0], points[1]); // first point as last point
-  } else {
-    pts.unshift(points[1]); // copy 1. point and insert at beginning
-    pts.unshift(points[0]);
-    pts.push(points[l - 2], points[l - 1]); // duplicate end-points
-  }
+      const t1x = (_points[i + 2] - _points[i - 2]) * tension;
+      const t1y = (_points[i + 3] - _points[i - 1]) * tension;
+      const t2x = (_points[i + 4] - _points[i]) * tension;
+      const t2y = (_points[i + 5] - _points[i + 1]) * tension;
 
-  // cache inner-loop calculations as they are based on t alone
-  cache[0] = 1; // 1,0,0,0
+      const c1 = 2 * st3 - 3 * st2 + 1;
+      const c2 = -2 * st3 + 3 * st2;
+      const c3 = st3 - 2 * st2 + st;
+      const c4 = st3 - st2;
 
-  for (; i < numOfSeg; i++) {
-    var st = i / numOfSeg,
-      st2 = st * st,
-      st3 = st2 * st,
-      st23 = st3 * 2,
-      st32 = st2 * 3;
-
-    cache[cachePtr++] = st23 - st32 + 1; // c1
-    cache[cachePtr++] = st32 - st23; // c2
-    cache[cachePtr++] = st3 - 2 * st2 + st; // c3
-    cache[cachePtr++] = st3 - st2; // c4
-  }
-
-  cache[++cachePtr] = 1; // 0,1,0,0
-
-  // calc. points
-  parse(pts, cache, l, tension);
-
-  if (close) {
-    pts = [];
-    pts.push(
-      points[l - 4],
-      points[l - 3],
-      points[l - 2],
-      points[l - 1], // second last and last
-      points[0],
-      points[1],
-      points[2],
-      points[3]
-    ); // first and second
-    parse(pts, cache, 4, tension);
-  }
-
-  function parse(pts, cache, l, tension) {
-    for (var i = 2, t; i < l; i += 2) {
-      var pt1 = pts[i],
-        pt2 = pts[i + 1],
-        pt3 = pts[i + 2],
-        pt4 = pts[i + 3],
-        t1x = (pt3 - pts[i - 2]) * tension,
-        t1y = (pt4 - pts[i - 1]) * tension,
-        t2x = (pts[i + 4] - pt1) * tension,
-        t2y = (pts[i + 5] - pt2) * tension,
-        c = 0,
-        c1,
-        c2,
-        c3,
-        c4;
-
-      for (t = 0; t < numOfSeg; t++) {
-        c1 = cache[c++];
-        c2 = cache[c++];
-        c3 = cache[c++];
-        c4 = cache[c++];
-
-        res[rPos++] = c1 * pt1 + c2 * pt3 + c3 * t1x + c4 * t2x;
-        res[rPos++] = c1 * pt2 + c2 * pt4 + c3 * t1y + c4 * t2y;
-      }
+      res.push(
+        c1 * _points[i] + c2 * _points[i + 2] + c3 * t1x + c4 * t2x,
+        c1 * _points[i + 1] + c2 * _points[i + 3] + c3 * t1y + c4 * t2y
+      );
     }
   }
-
-  // add last point
-  l = close ? 0 : points.length - 2;
-  res[rPos++] = points[l++];
-  res[rPos] = points[l];
-
   return res;
 }
-
 export function generateRandomPoints(num = 10, width, height) {
-  var numPoints = num || 10;
-  var points = [];
-  for (var i = 0; i < numPoints; i++) {
+  let numPoints = num || 10;
+  let points = [];
+  for (let i = 0; i < numPoints; i++) {
     points.push(
       (width * Math.random() * 0.9 + width * 0.05) | 0,
       (height * Math.random() * 0.9 + height * 0.05) | 0
@@ -191,7 +125,7 @@ export class BrushEngine {
     this.x = x;
     this.y = y;
     this.latestPos = { x, y };
-    this.strokeId = Math.random().toString(36).substr(2, 9);
+    this.strokeId = Math.random().toString(36).substring(2, 9);
     this._resetTip();
   }
 
@@ -227,11 +161,10 @@ export class BrushEngine {
     this.y = y;
 
     // Update existing drops
-    for (let i = 0; i < this.drops.length; i++) {
+    for (let i = this.drops.length - 1; i >= 0; i--) {
       const drop = this.drops[i];
       if (drop.life <= 0) {
         this.drops.splice(i, 1);
-        i--;
       } else {
         drop.render(this.ctx);
       }
