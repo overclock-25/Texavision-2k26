@@ -49,7 +49,7 @@ const Hero = () => {
                 Texavision 2k26
               </h1>
               <div className="flex items-center justify-start text-2xl">
-                25th - 28st January 2026 | GCETTS, Hooghly
+                25th - 28th January 2026 | GCETTS, Hooghly
               </div>
             </div>
             <div className="mt-4 flex w-full flex-col justify-center gap-6 text-4xl font-bold md:justify-start">
@@ -63,16 +63,18 @@ const Hero = () => {
                 labels={['Days', 'Hours', 'Minutes', 'Seconds']}
                 duration={0.5}
                 className="no-seconds flex scale-70 items-center justify-start md:scale-100"
-                onComplete={() => console.log('Countdown finished!')}
+                // onComplete={() => console.log('Countdown finished!')}
               />
             </div>
             <div className="flex w-full items-center justify-center md:justify-start">
-              <button
-                type="button"
-                className="rounded-lg border-2 border-yellow-200 px-4 py-2 font-black tracking-wider text-yellow-200 transition-colors duration-200 ease-in-out hover:bg-yellow-200 hover:text-black"
-              >
-                Contact Us
-              </button>
+              <a href="https://cal.com/texavision-2k26" target="_blank" rel="noopener noreferrer">
+                <button
+                  type="button"
+                  className="rounded-lg border-2 border-yellow-200 px-4 py-2 font-black tracking-wider text-yellow-200 transition-colors duration-200 ease-in-out hover:bg-yellow-200 hover:text-black"
+                >
+                  Contact Us
+                </button>
+              </a>
             </div>
           </div>
           <div className="relative z-25 hidden h-full w-full flex-col items-center justify-center sm:flex">
@@ -95,9 +97,15 @@ const Hero = () => {
             <div className="text-gray-400">
               <FacebookIcon />
             </div>
-            <div className="text-gray-400">
-              <InstagramIcon />
-            </div>
+            <a
+              href="https://www.instagram.com/texavision_official"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="text-gray-400">
+                <InstagramIcon />
+              </div>
+            </a>
             <div className="text-gray-400">
               <TwitterIcon />
             </div>
