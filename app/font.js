@@ -8,6 +8,7 @@ import {
   Rubik_Maps,
   Rubik_Wet_Paint,
   Rubik_Glitch_Pop,
+  Montserrat,
 } from 'next/font/google';
 
 const centrion = localFont({
@@ -107,6 +108,13 @@ const rubikMaps = Rubik_Maps({
   display: 'swap',
 });
 
+const montserrat = Montserrat({
+  weight: ['400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  display: 'swap',
+});
+
 const fonts = {
   centrion,
   drunkMillionaire,
@@ -121,6 +129,7 @@ const fonts = {
   rubikMarkerHatch,
   medievalSharp,
   rubikMaps,
+  montserrat,
 };
 
 export default fonts;

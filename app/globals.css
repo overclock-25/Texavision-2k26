@@ -70,8 +70,30 @@
   --color-mint: var(--color-mint);
 
   --color-rose-deep: var(--color-rose-deep);
+
+  /* Font Variables */
+  --font-montserrat: 'Montserrat', sans-serif;
 }
 
 body {
-  font-family: var(--font-gillian-joe), sans-serif; /* TODO: Add font */
+  font-family: var(--font-gillian-joe), sans-serif;
+  /* TODO: Add font */
+}
+
+@layer utilities {
+  .bg-vintage {
+    background: radial-gradient(circle at center, transparent, #000000);
+  }
+
+  /* Add this to your stylesheet */
+  .no-seconds .flip-clock__unit:nth-child(4) {
+    display: none !important;
+    /* hides the seconds column */
+  }
+
+  /* Optional: adjust spacing so the layout doesn't look broken */
+  .no-seconds .flip-clock__unit:nth-child(3) {
+    margin-right: 20px;
+    /* or whatever looks good */
+  }
 }
