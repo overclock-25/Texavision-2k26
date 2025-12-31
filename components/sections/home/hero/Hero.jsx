@@ -16,7 +16,7 @@ import gsap from 'gsap';
 
 const Hero = () => {
   const bgImage = React.useRef(null);
-  const sectionPadding = 'md:px-10 sm:px-6 px-4 md:py-8 sm:py-6 py-4';
+  const sectionPadding = 'md:px-10 sm:px-8 px-4 md:py-8 sm:py-6 py-4';
   useGSAP(() => {
     const tl = gsap.timeline();
     tl.to(bgImage.current, {
@@ -35,20 +35,28 @@ const Hero = () => {
         <div className="flex flex-row items-start justify-start gap-8">
           <div className="flex flex-row items-center justify-center gap-4">
             <div className="flex flex-row items-center justify-center gap-2">
-              <Image src={Logo} alt="Texavision Logo" className="w-[50px] object-contain" />
+              <Image
+                src={Logo}
+                alt="Texavision Logo"
+                className="w-[25px] object-contain md:w-[50px]"
+              />
             </div>
             <div className="flex flex-row items-center justify-center gap-2">
-              <Image src={LogoText} alt="Texavision Logo" className="w-[150px] object-contain" />
+              <Image
+                src={LogoText}
+                alt="Texavision Logo"
+                className="w-[95px] object-contain md:w-[150px]"
+              />
             </div>
           </div>
         </div>
         <div className="flex h-full w-full flex-col items-center justify-center gap-4 md:flex-row">
-          <div className="flex h-full w-full flex-col items-start justify-start gap-8 md:w-1/2">
+          <div className="flex h-full w-full flex-col items-start justify-start gap-4 sm:gap-6 md:w-1/2 md:gap-8">
             <div className="flex w-full flex-col gap-8 text-center md:text-left">
-              <h1 className="z-30 text-5xl font-black tracking-wider uppercase md:text-8xl">
+              <h1 className="z-30 text-center text-4xl font-black tracking-wider uppercase md:text-left md:text-8xl">
                 Texavision 2k26
               </h1>
-              <div className="flex items-center justify-start text-2xl">
+              <div className="flex w-full items-center justify-center text-center text-2xl md:justify-start md:text-left">
                 25th - 28th January 2026 | GCETTS, Hooghly
               </div>
             </div>
@@ -57,15 +65,15 @@ const Hero = () => {
                 Seeing you soon ...
               </span>
             </div>
-            <div className="flex w-fit items-start justify-start">
-              <FlipClockCountdown
-                to={new Date('2026-01-25').getTime()}
-                labels={['Days', 'Hours', 'Minutes', 'Seconds']}
-                duration={0.5}
-                className={`no-seconds -mx-2 flex max-w-screen -translate-x-10 scale-60 items-center justify-start gap-2 px-1 py-2 sm:translate-x-0 md:mx-0 md:scale-90 md:gap-4 md:px-3 md:py-4 lg:scale-100 lg:gap-6 lg:px-6 xl:scale-110`}
-                // onComplete={() => console.log('Countdown finished!')}
-              />
-            </div>
+            {/* <div className="flex w-fit items-center justify-center md:justify-start"> */}
+            <FlipClockCountdown
+              to={new Date('2026-01-25').getTime()}
+              labels={['Days', 'Hours', 'Minutes', 'Seconds']}
+              duration={0.5}
+              className={`no-seconds mx-auto flex max-w-screen -translate-x-13 scale-60 items-center justify-start sm:translate-x-0 md:mx-0 md:translate-x-0 md:scale-100`}
+              // onComplete={() => console.log('Countdown finished!')}
+            />
+            {/* </div> */}
             <div className="flex w-full items-center justify-center md:justify-start">
               <a href="https://cal.com/texavision-2k26" target="_blank" rel="noopener noreferrer">
                 <button
@@ -77,7 +85,7 @@ const Hero = () => {
               </a>
             </div>
           </div>
-          <div className="relative z-25 hidden h-full w-full flex-col items-center justify-center sm:flex">
+          <div className="relative z-25 hidden h-full w-full flex-col items-center justify-center md:flex">
             <div className="relative z-30 flex aspect-square h-[400px] w-fit items-center justify-center rounded-full bg-black/30 shadow-lg shadow-black/50 backdrop-blur-md">
               <Image
                 src="/videos/soon.gif"
