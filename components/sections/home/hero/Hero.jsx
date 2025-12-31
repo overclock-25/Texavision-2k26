@@ -57,12 +57,12 @@ const Hero = () => {
                 Seeing you soon ...
               </span>
             </div>
-            <div className="flex w-full items-start justify-start">
+            <div className="flex w-fit items-start justify-start">
               <FlipClockCountdown
                 to={new Date('2026-01-25').getTime()}
                 labels={['Days', 'Hours', 'Minutes', 'Seconds']}
                 duration={0.5}
-                className="no-seconds flex scale-70 items-center justify-start md:scale-100"
+                className={`no-seconds -mx-2 flex max-w-screen -translate-x-10 scale-60 items-center justify-start gap-2 px-1 py-2 sm:translate-x-0 md:mx-0 md:scale-90 md:gap-4 md:px-3 md:py-4 lg:scale-100 lg:gap-6 lg:px-6 xl:scale-110`}
                 // onComplete={() => console.log('Countdown finished!')}
               />
             </div>

@@ -13,6 +13,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@acrool/react-flip-countdown": "^0.0.2",
     "@gsap/react": "^2.1.2",
     "@leenguyen/react-flip-clock-countdown": "^1.7.2",
     "@tabler/icons-react": "^3.36.0",
