@@ -29,7 +29,7 @@ const Hero = () => {
   });
   return (
     <div
-      className={`font-montserrat relative min-h-screen w-full overflow-hidden bg-transparent text-white md:h-screen ${sectionPadding}`}
+      className={`font-montserrat relative min-h-screen w-full bg-transparent text-white ${sectionPadding}`}
     >
       <div className="relative top-0 left-0 z-20 flex h-full w-full flex-col items-start justify-evenly gap-8">
         <div className="flex flex-row items-start justify-start gap-8">
@@ -45,7 +45,7 @@ const Hero = () => {
         <div className="flex h-full w-full flex-col items-center justify-center gap-4 md:flex-row">
           <div className="flex h-full w-full flex-col items-start justify-start gap-8 md:w-1/2">
             <div className="flex w-full flex-col gap-8 text-center md:text-left">
-              <h1 className="text-5xl font-black tracking-wider uppercase md:text-8xl">
+              <h1 className="z-30 text-5xl font-black tracking-wider uppercase md:text-8xl">
                 Texavision 2k26
               </h1>
               <div className="flex items-center justify-start text-2xl">
@@ -78,7 +78,7 @@ const Hero = () => {
             </div>
           </div>
           <div className="relative z-25 hidden h-full w-full flex-col items-center justify-center sm:flex">
-            <div className="relative z-30 flex aspect-square h-[400px] w-fit items-center justify-center rounded-full bg-black">
+            <div className="relative z-30 flex aspect-square h-[400px] w-fit items-center justify-center rounded-full bg-black/30 shadow-lg shadow-black/50 backdrop-blur-md">
               <Image
                 src="/videos/soon.gif"
                 alt="Hero Animation"
@@ -94,9 +94,15 @@ const Hero = () => {
           <div className="font-bold text-gray-500">Social Links</div>
           <div className="font-bold text-gray-500"> - </div>
           <div className="flex flex-row gap-6">
-            <div className="text-gray-400">
-              <FacebookIcon />
-            </div>
+            <a
+              href="https://www.facebook.com/share/14JKvJdc4YQ/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="text-gray-400">
+                <FacebookIcon />
+              </div>
+            </a>
             <a
               href="https://www.instagram.com/texavision_official"
               target="_blank"
@@ -120,7 +126,7 @@ const Hero = () => {
         ref={bgImage}
         src={heroImage}
         alt="Hero Background"
-        className="absolute top-0 left-0 -z-1 h-full scale-110 object-cover blur-2xl brightness-30"
+        className="absolute top-0 left-0 -z-1 h-full scale-190 bg-clip-padding object-cover blur-2xl brightness-30"
       />
     </div>
   );
