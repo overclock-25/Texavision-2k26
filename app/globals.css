@@ -70,6 +70,23 @@
   --color-mint: var(--color-mint);
 
   --color-rose-deep: var(--color-rose-deep);
+
+  --font-centrion: var(--font-centrion);
+  --font-drunk-millionaire: var(--font-drunk-millionaire);
+  --font-gillian-joe: var(--font-gillian-joe);
+  --font-grindy-brush: var(--font-grindy-brush);
+  --font-spray-paint-demo: var(--font-spray-paint-demo);
+
+  --font-protest-revolution: var(--font-protest-revolution);
+  --font-nosifer: var(--font-nosifer);
+
+  --font-rubik-doodle-shadow: var(--font-rubik-doodle-shadow);
+  --font-rubik-glitch-pop: var(--font-rubik-glitch-pop);
+  --font-rubik-wet-paint: var(--font-rubik-wet-paint);
+  --font-rubik-marker-hatch: var(--font-rubik-marker-hatch);
+  --font-rubik-maps: var(--font-rubik-maps);
+
+  --font-medieval-sharp: var(--font-medieval-sharp);
 }
 
 body {
