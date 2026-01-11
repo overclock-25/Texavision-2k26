@@ -73,5 +73,21 @@
 }
 
 body {
-  font-family: var(--font-gillian-joe), sans-serif; /* TODO: Add font */
+  font-family: var(--font-abegnale), sans-serif;
+  @apply text-[clamp(1rem,1.5rem,2rem)] leading-tight font-normal tracking-wide;
+}
+
+/*? Will p text be different from body ? */
+p {
+  font-family: var(--font-abegnale), sans-serif;
+  @apply text-[clamp(1rem,1.5rem,2rem)] leading-tight font-normal tracking-wide;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  p,
+  a {
+    transition: none;
+    text-shadow: none;
+  }
 }
