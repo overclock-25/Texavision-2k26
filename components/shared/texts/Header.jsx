@@ -81,7 +81,7 @@ const Header = ({ bgColorClass, textColorClass, brushColor, heading }) => {
   return (
     <div
       ref={containerRef}
-      className={`relative flex min-h-[200px] items-center justify-center overflow-hidden p-8 ${bgColorClass}`}
+      className={`relative flex min-h-[100px] items-center justify-center overflow-hidden p-8 md:min-h-[200px] ${bgColorClass}`}
     >
       {/* Canvas positioned behind the text */}
       <canvas
@@ -93,7 +93,7 @@ const Header = ({ bgColorClass, textColorClass, brushColor, heading }) => {
 
       {/* Text layer */}
       <h2
-        className={`${textColorClass} relative z-10 text-5xl font-bold tracking-widest uppercase mix-blend-normal`}
+        className={`${textColorClass} text-large relative z-10 font-bold tracking-widest uppercase mix-blend-normal`}
       >
         {heading}
       </h2>
