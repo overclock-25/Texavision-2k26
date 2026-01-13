@@ -2,24 +2,26 @@ import Image from 'next/image';
 import React from 'react';
 import DeptImage from './DeptImage';
 
-const SprayImage = ({ department = 'CSE' }) => {
+const SprayImage = ({ department = 'CSE', size = 36 }) => {
+  const circleSizes = size;
+  const imageSizes = size + 4;
   return (
     <div className="relative flex flex-col items-center justify-center md:flex-row">
-      <div className="h-36 w-36 p-6">
+      <div className={`h-${imageSizes} w-${imageSizes} p-6`}>
         <Image
-          width={100}
-          height={100}
+          width={size * 5}
+          height={size * 5}
           src="/images/team/dev1.png"
           alt="Union Member"
-          className="relative inset-0 z-5 h-full w-full -translate-x-1 translate-y-1 rounded-full object-cover"
+          className="-traslate-x-1 translat-y-1 relative inset-0 z-5 h-full w-full rounded-full object-cover"
         />
       </div>
       <Image
-        width={120}
-        height={120}
-        src="/images/svg/circle.svg"
+        width={size * 4}
+        height={size * 4}
+        src="/images/svg/circle2.svg"
         alt="circle"
-        className="absolute z-1 h-36 w-36 rounded-full object-cover"
+        className={`absolute z-6 h-${circleSizes} w-${circleSizes} rounded-full object-cover`}
       />
       <DeptImage department={department} />
       {/* <Image

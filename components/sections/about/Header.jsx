@@ -48,8 +48,8 @@ const Header = ({ title = 'About Us' }) => {
       /> */}
       <RandomShapeRevealCanvas
         src="/images/png/spray-tp.png"
-        height={400}
-        width={800}
+        height={500}
+        width={1000}
         shapeCount={40}
         growthSpeed={2}
         className="h-100 w-1/2 object-contain"

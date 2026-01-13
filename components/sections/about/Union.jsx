@@ -39,7 +39,7 @@ const Union = ({ title = data.title }) => {
     return tl;
   });
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 px-16 py-14">
       <div className="w-full">
         <h2 className="appear mx-auto mb-8 w-full text-center text-4xl font-bold text-purple-700 md:w-3/4 md:text-6xl">
           {title}

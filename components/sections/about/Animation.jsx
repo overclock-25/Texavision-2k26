@@ -1,13 +1,25 @@
+import SpriteHeader from '@/components/shared/texts/SpriteHeader';
 import RandomShapeRevealCanvas from '@/components/shared/utils/RandomShapeRevealCanvas';
 import React from 'react';
 
 const Animation = () => {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 bg-gray-100 px-14 py-16">
       <div className="w-full">
-        <h2 className="mx-auto w-full text-center text-5xl font-bold md:w-3/4 md:text-6xl">
+        {/* <h2 className="mx-auto w-full text-center text-5xl font-bold text-white md:w-3/4 md:text-6xl">
           Our Journey
-        </h2>
+        </h2> */}
+        <SpriteHeader
+          heading="Our Journey"
+          spriteSrc="/spr-header.png"
+          frames={24}
+          orientation="vertical"
+          frameAspectRatio={1280 / 720}
+          brushColor="black" // Custom brush color
+          bgColorClass="#000000"
+          textColorClass="text-gray-100"
+          duration={1.5}
+        />
       </div>
       <div className="mx-auto max-w-4xl text-center">
         <p className="text-lg md:text-xl">
