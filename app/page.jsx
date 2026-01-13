@@ -30,7 +30,19 @@ const Home = () => {
         duration={1.5}
       />
       <Timeline />
+      <TornEdge
+        upSectionColor="#faf5ee"
+        edgeColor="#ffffff"
+        className="overflow-hidden"
+        downSectionColor="#000000"
+      />
       <Performances />
+      <TornEdge
+        upSectionColor="#000000"
+        edgeColor="#ffffff"
+        className="overflow-hidden"
+        downSectionColor="#faf5ee"
+      />
       <Merch />
       <Gallery />
       {/* Remove when whole page is done, this is for poster scroll */}

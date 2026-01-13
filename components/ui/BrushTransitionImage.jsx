@@ -67,7 +67,7 @@ const BrushTransitionImage = ({ src, selectedIndex }) => {
         h * 0.2, // Swing right-up
         w * 0.25,
         h * 0.65, // Swing left-down
-        w * 0.7,
+        w * 0.4,
         h * 0.35, // Swing right-up
         w * 0.9,
         h * 0.3, // Swing left-down
@@ -82,7 +82,7 @@ const BrushTransitionImage = ({ src, selectedIndex }) => {
         w + 150,
         h * 0.4, // Swing to right edge
         w * 0.3,
-        h + 150, // Swing to bottom edge
+        h + 100, // Swing to bottom edge
         w + 150,
         h + 150, // End off-screen bottom-right
       ];
