@@ -5,16 +5,22 @@ import Performances from '@/components/sections/home/performances/Performances';
 import Sponsors from '@/components/sections/home/sponsors/Sponsors';
 import Timeline from '@/components/sections/home/timeline/Timeline';
 import Header from '@/components/shared/texts/Header';
+import SpriteHeader from '@/components/shared/texts/SpriteHeader';
 const Home = () => {
   return (
     <>
       <Hero />
       <Sponsors />
-      <Header
+      <SpriteHeader
         heading="Timeline"
-        bgColorClass={'bg-sand'}
-        textColorClass={'text-sand'}
-        brushColor={'#000000'}
+        spriteSrc="/spr-header.png"
+        frames={24}
+        orientation="vertical"
+        frameAspectRatio={1280 / 720}
+        brushColor="#000000" // Custom brush color
+        bgColorClass="bg-sand-light"
+        textColorClass="text-sand-light"
+        duration={1.5}
       />
       <Timeline />
       <Performances />
