@@ -35,7 +35,7 @@ const Header = ({ title = 'About Us' }) => {
     <div className="relative my-20 flex w-full flex-col items-center justify-center overflow-hidden">
       <h2
         ref={titleRef}
-        className="text-purple-rich absolute z-10 flex translate-y-0 items-center justify-center text-center text-7xl font-extrabold opacity-0 md:text-9xl"
+        className="text-purple-rich font-grindy-brush absolute z-10 mx-auto flex w-full translate-y-0 items-center justify-center text-center text-7xl font-extrabold opacity-0 md:w-3/4 md:text-9xl"
       >
         {title}
       </h2>
@@ -47,11 +47,12 @@ const Header = ({ title = 'About Us' }) => {
         className="object-contain w-1/2 h-100"
       /> */}
       <RandomShapeRevealCanvas
-        src="/images/svg/spray-paint.svg"
-        size={400}
+        src="/images/png/spray-tp.png"
+        height={400}
+        width={800}
         shapeCount={40}
         growthSpeed={2}
-        className=""
+        className="h-100 w-1/2 object-contain"
       />
 
       {/* <CircularRevealCanvas

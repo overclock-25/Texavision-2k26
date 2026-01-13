@@ -21,7 +21,7 @@ const Hero = () => {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
       <Header title="About Us" />
-      <p className="fly-in">
+      <p className="fly-in max-w-4xl text-center text-xl md:text-2xl">
         Texavision 2k26 team is a group of passionate individuals dedicated to innovation and
         creativity.
       </p>
