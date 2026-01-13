@@ -6,9 +6,9 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className="bg-vanilla-cream flex flex-col gap-28 px-10">
+    <div className="bg-vanilla-cream flex flex-col gap-18 px-6 pb-16 md:px-10">
       <Hero />
-      {/* <Animation /> */}
+      <Animation />
       <Union />
       <Developers />
     </div>

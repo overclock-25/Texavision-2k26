@@ -102,6 +102,10 @@ p {
   @apply text-[clamp(1rem,1.5rem,2rem)] leading-tight font-normal tracking-wide;
 }
 
+/* p {
+  @apply text-md font-protest-revolution;
+} */
+
 @media (prefers-reduced-motion: reduce) {
   body,
   p,
@@ -111,8 +115,12 @@ p {
   }
 }
 
-p {
-  @apply text-2xl;
+h2 {
+  @apply font-protest-revolution font-extrabold;
+}
+
+h3 {
+  @apply font-grindy-brush font-extrabold;
 }
 
 .hero svg path {
