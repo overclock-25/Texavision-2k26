@@ -11,6 +11,7 @@ export const metadata = {
 };
 
 const fontsArrayVars = [
+  fonts.abegnale.variable,
   fonts.centrion.variable,
   fonts.drunkMillionaire.variable,
   fonts.gillianJoe.variable,

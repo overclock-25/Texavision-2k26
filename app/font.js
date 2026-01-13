@@ -10,6 +10,12 @@ import {
   Rubik_Glitch_Pop,
 } from 'next/font/google';
 
+const abegnale = localFont({
+  src: [{ path: '../assets/fonts/abegnale/Abegnale.ttf', weight: '400', style: 'normal' }],
+  variable: '--font-abegnale',
+  display: 'swap',
+});
+
 const centrion = localFont({
   src: [{ path: '../assets/fonts/centrion/Centrion-Regular.otf', weight: '400', style: 'normal' }],
   variable: '--font-centrion',
@@ -108,6 +114,7 @@ const rubikMaps = Rubik_Maps({
 });
 
 const fonts = {
+  abegnale,
   centrion,
   drunkMillionaire,
   gillianJoe,
