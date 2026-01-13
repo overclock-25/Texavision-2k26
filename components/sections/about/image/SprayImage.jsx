@@ -9,11 +9,11 @@ const SprayImage = ({ department = 'CSE', size = 36 }) => {
     <div className="relative flex flex-col items-center justify-center md:flex-row">
       <div className={`h-${imageSizes} w-${imageSizes} p-6`}>
         <Image
-          width={size * 5}
-          height={size * 5}
+          width={size * 2}
+          height={size * 2}
           src="/images/team/dev1.png"
           alt="Union Member"
-          className="-traslate-x-1 translat-y-1 relative inset-0 z-5 h-full w-full rounded-full object-cover"
+          className="-traslate-x-1 translat-y-1 relative inset-0 z-5 aspect-square h-full w-full rounded-full object-cover"
         />
       </div>
       <Image
