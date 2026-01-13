@@ -47,6 +47,12 @@ const Home = () => {
       <Gallery />
       {/* Remove when whole page is done, this is for poster scroll */}
       <div className="h-[200vh]"></div>
+      <TornEdge
+        upSectionColor="#ffffff"
+        edgeColor="#ffffff"
+        className="overflow-hidden"
+        downSectionColor="#000000"
+      />
     </>
   );
 };
