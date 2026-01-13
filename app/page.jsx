@@ -4,6 +4,7 @@ import Merch from '@/components/sections/home/merch/Merch';
 import Performances from '@/components/sections/home/performances/Performances';
 import Sponsors from '@/components/sections/home/sponsors/Sponsors';
 import Timeline from '@/components/sections/home/timeline/Timeline';
+import TornEdge from '@/components/shared/edges/TornEdge0';
 import Header from '@/components/shared/texts/Header';
 import SpriteHeader from '@/components/shared/texts/SpriteHeader';
 const Home = () => {
@@ -11,6 +12,12 @@ const Home = () => {
     <>
       <Hero />
       <Sponsors />
+      <TornEdge
+        upSectionColor="#000000"
+        edgeColor="#ffffff"
+        className="mt-[-1px] overflow-hidden"
+        downSectionColor="#faf5ee"
+      />
       <SpriteHeader
         heading="Timeline"
         spriteSrc="/spr-header.png"
