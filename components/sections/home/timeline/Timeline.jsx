@@ -4,7 +4,7 @@ import PosterBg from '@/assets/images/svgs/poster.svg';
 
 const Timeline = () => {
   return (
-    <div className="bg-sand relative overflow-hidden">
+    <div className="bg-sand-light relative overflow-hidden">
       <div className="absolute top-0 left-0 z-0 h-full w-full">
         <Image src={PosterBg} alt="Timeline" className="h-auto w-full" />
       </div>

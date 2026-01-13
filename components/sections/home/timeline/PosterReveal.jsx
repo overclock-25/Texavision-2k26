@@ -62,7 +62,7 @@ export default function BrushSwipeAnimation() {
       scrollTrigger: {
         trigger: containerRef.current,
         start: 'top 80%',
-        end: 'bottom top',
+        end: 'bottom 80%',
         scrub: 1,
       },
     });
