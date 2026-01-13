@@ -15,7 +15,7 @@ const Home = () => {
       <TornEdge
         upSectionColor="#000000"
         edgeColor="#ffffff"
-        className="mt-[-1px] overflow-hidden"
+        className="overflow-hidden"
         downSectionColor="#faf5ee"
       />
       <SpriteHeader

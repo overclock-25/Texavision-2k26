@@ -4,7 +4,13 @@ const TornEdge0 = ({ upSectionColor, edgeColor, downSectionColor, className }) =
   return (
     <div
       className={className}
-      style={{ width: '100%', overflow: 'hidden', backgroundColor: downSectionColor || edgeColor }}
+      style={{
+        width: '100%',
+        overflow: 'hidden',
+        backgroundColor: downSectionColor || edgeColor,
+        marginTop: '-1px',
+        marginBottom: '-1px',
+      }}
     >
       <svg
         viewBox="0 0 1834 90"
