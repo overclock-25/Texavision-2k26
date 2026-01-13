@@ -52,6 +52,12 @@ const Home = () => {
         downSectionColor="#000000"
       />
       <Merch />
+      <TornEdge
+        upSectionColor="#000000"
+        edgeColor="#ffffff"
+        className="overflow-hidden"
+        downSectionColor="#faf5ee"
+      />
       <Gallery />
       {/* Remove when whole page is done, this is for poster scroll */}
       <div className="h-[200vh]"></div>
