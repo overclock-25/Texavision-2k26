@@ -111,6 +111,10 @@ p {
   }
 }
 
+p {
+  @apply text-2xl;
+}
+
 .hero svg path {
   fill: transparent;
   stroke: white;
