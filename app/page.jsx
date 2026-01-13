@@ -29,7 +29,7 @@ const Home = () => {
         textColorClass="text-sand-light"
         duration={1.5}
       />
-      <Timeline />
+      {/* <Timeline /> */}
       <TornEdge
         upSectionColor="#faf5ee"
         edgeColor="#ffffff"
