@@ -4,7 +4,7 @@ import DeptImage from './DeptImage';
 
 const SprayImage = ({ department = 'CSE', size = 36 }) => {
   const circleSizes = size;
-  const imageSizes = size + 4;
+  const imageSizes = size;
   return (
     <div className="relative flex flex-col items-center justify-center md:flex-row">
       <div className={`h-${imageSizes} w-${imageSizes} p-6`}>
