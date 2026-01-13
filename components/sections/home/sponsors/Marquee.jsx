@@ -1,6 +1,6 @@
 'use client';
 import React, { useRef, useLayoutEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 const MarqueeAnimation = ({ children, direction, duration, className }) => {
   const containerRef = useRef(null);
