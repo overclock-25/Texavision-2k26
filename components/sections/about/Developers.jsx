@@ -34,7 +34,7 @@ const devs = [
 ];
 const Developers = () => {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 bg-[#faf5ee] px-16 py-14">
       <div className="w-full">
         <h2 className="text-purple-rich mx-auto mb-8 w-full text-center text-xl font-bold md:w-3/4 md:text-6xl">
           Meet the Developers
