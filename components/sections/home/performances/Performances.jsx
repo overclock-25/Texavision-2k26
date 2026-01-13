@@ -1,10 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import panicImg from '@/assets/images/home/panic.webp';
 import trap from '@/assets/images/home/trap.webp';
+import didi from '@/assets/images/home/music.webp';
 import Header from '@/components/shared/texts/Header';
+import DateCard from '@/components/ui/DateCard';
+import CarouselCard from '@/components/ui/CarouselCard';
+import BrushTransitionImage from '@/components/ui/BrushTransitionImage';
 
 const performanceData = [
   {
@@ -13,7 +17,7 @@ const performanceData = [
     month: 'Feb',
     year: '2026',
     title: 'Opening Night',
-    image: trap,
+    image: didi,
   },
   {
     id: 2,
@@ -29,7 +33,7 @@ const performanceData = [
     month: 'Feb',
     year: '2026',
     title: 'Grand Finale',
-    image: panicImg,
+    image: trap,
   },
 ];
 
@@ -74,7 +78,7 @@ const Performances = () => {
   };
 
   return (
-    <section className="relative h-screen overflow-hidden bg-black">
+    <section className="relative h-auto overflow-hidden bg-black">
       {/* Video Background */}
       <div className="pointer-events-none absolute inset-0">
         <video
@@ -92,12 +96,12 @@ const Performances = () => {
       <div className="absolute inset-0 z-1 bg-black/60" />
 
       {/* Gradient mask - top fade to black */}
-      <div className="absolute inset-x-0 top-0 z-2 h-40 bg-linear-to-b from-black via-black/70 to-transparent" />
+      <div className="absolute inset-x-0 top-0 z-2 h-200 bg-[linear-gradient(to_bottom,black,rgba(0,0,0,0.7)_30%,rgba(0,0,0,0.5)_60%,transparent)] lg:h-50" />
 
       {/* Gradient mask - bottom fade to black */}
-      <div className="absolute inset-x-0 bottom-0 z-2 h-40 bg-linear-to-t from-black via-black/70 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 z-2 h-70 bg-[linear-gradient(to_top,black,rgba(0,0,0,0.7)_30%,transparent)]" />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-6 py-16 md:px-12 lg:px-20">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-6 py-16 md:px-12 lg:px-10">
         {/* Mobile: Title at top */}
         {/* <h2 className="lg:hidden font-grindy-brush text-5xl md:text-6xl text-cream mb-8 tracking-wide text-center">
 					Performances
@@ -105,7 +109,7 @@ const Performances = () => {
         <Header
           heading="Performances"
           bgColorClass={'bg-transparent lg:hidden'}
-          textColorClass={'text-black'}
+          textColorClass={'text-black !text-xl md:!text-3xl'}
           brushColor={'#ffffff'}
         />
 
@@ -115,47 +119,24 @@ const Performances = () => {
             <div className="relative w-full max-w-md">
               {/* Image Container */}
               <div className="bg-blur relative mb-6 h-[500px] w-full overflow-hidden rounded-lg bg-transparent shadow-lg lg:mb-0">
-                <Image
+                <BrushTransitionImage
                   src={selectedPerformance.image}
                   alt={selectedPerformance.title}
-                  fill
-                  className="object-fit transition-all duration-500 ease-in-out"
-                  priority
+                  selectedIndex={selectedIndex}
                 />
               </div>
 
               {/* Date Cards - Overlaid on image for mobile, hidden on desktop */}
-              <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-3 lg:hidden">
-                {performanceData.map((performance, index) => {
-                  const isSelected = index === selectedIndex;
-
-                  return (
-                    <div
-                      key={performance.id}
-                      onClick={() => setSelectedIndex(index)}
-                      className={`flex h-16 w-20 cursor-pointer flex-col items-center justify-center rounded-lg backdrop-blur-sm transition-all duration-300 ease-out ${
-                        isSelected
-                          ? 'bg-charcoal text-cream scale-105 shadow-xl'
-                          : 'text-charcoal border-charcoal/20 border bg-transparent shadow-md'
-                      } `}
-                    >
-                      <span
-                        className={`font-gillian-joe text-xl font-bold ${
-                          isSelected ? 'text-cream' : 'text-charcoal'
-                        }`}
-                      >
-                        {performance.date}
-                      </span>
-                      <span
-                        className={`text-xs tracking-wider uppercase ${
-                          isSelected ? 'text-cream/80' : 'text-charcoal/70'
-                        }`}
-                      >
-                        {performance.month}
-                      </span>
-                    </div>
-                  );
-                })}
+              <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-3 lg:hidden">
+                {performanceData.map((performance, index) => (
+                  <DateCard
+                    key={performance.id}
+                    date={performance.date}
+                    month={performance.month}
+                    isSelected={index === selectedIndex}
+                    onClick={() => setSelectedIndex(index)}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -163,7 +144,7 @@ const Performances = () => {
           {/* Right Side - Title & Date Cards (Desktop only) */}
           <div className="hidden h-[500px] w-full flex-col items-center justify-between lg:flex lg:w-1/2 lg:items-end">
             {/* Title - Desktop */}
-            <h2 className="font-grindy-brush text-cream text-5xl tracking-wide md:text-6xl lg:text-7xl">
+            <h2 className="font-grindy-brush text-cream hidden text-right tracking-wide md:text-6xl lg:block lg:text-6xl">
               Performances
             </h2>
             {/* <Header
@@ -194,41 +175,17 @@ const Performances = () => {
                   const carouselStyle = getCarouselStyle(index);
 
                   return (
-                    <div
+                    <CarouselCard
                       key={performance.id}
+                      date={performance.date}
+                      month={performance.month}
+                      year={performance.year}
+                      title={performance.title}
+                      image={performance.image}
+                      isSelected={isSelected}
                       onClick={() => setSelectedIndex(index)}
-                      className={`absolute flex h-32 w-44 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-xl transition-all duration-700 ease-out ${
-                        isSelected ? 'shadow-cream/20 shadow-2xl' : 'shadow-lg'
-                      } `}
-                      style={{
-                        ...carouselStyle,
-                        transformStyle: 'preserve-3d',
-                        backfaceVisibility: 'hidden',
-                      }}
-                    >
-                      {/* Card background image */}
-                      <Image
-                        src={performance.image}
-                        alt={performance.title}
-                        fill
-                        className="object-cover"
-                      />
-                      {/* Dark overlay */}
-                      <div
-                        className={`absolute inset-0 ${
-                          isSelected ? 'bg-black/40' : 'bg-black/60'
-                        } transition-all duration-500`}
-                      />
-                      {/* Content */}
-                      <div className="relative z-10 text-center">
-                        <span className="font-gillian-joe text-cream text-4xl font-bold drop-shadow-lg">
-                          {performance.date}
-                        </span>
-                        <span className="text-cream/90 block text-sm tracking-wider uppercase drop-shadow-md">
-                          {performance.month} {performance.year}
-                        </span>
-                      </div>
-                    </div>
+                      style={carouselStyle}
+                    />
                   );
                 })}
               </div>

@@ -35,24 +35,47 @@ export function useBrushstroke(canvasRef, globalOptions = {}) {
             };
           });
 
+          // Scale image to fit canvas (object-cover behavior)
+          const canvasWidth = canvasRef.current.width;
+          const canvasHeight = canvasRef.current.height;
+
+          // Calculate scale to cover the canvas (like object-cover)
+          const imgRatio = img.width / img.height;
+          const canvasRatio = canvasWidth / canvasHeight;
+
+          let drawWidth, drawHeight, offsetX, offsetY;
+
+          if (imgRatio > canvasRatio) {
+            // Image is wider - fit height, crop width
+            drawHeight = canvasHeight;
+            drawWidth = canvasHeight * imgRatio;
+            offsetX = (canvasWidth - drawWidth) / 2;
+            offsetY = 0;
+          } else {
+            // Image is taller - fit width, crop height
+            drawWidth = canvasWidth;
+            drawHeight = canvasWidth / imgRatio;
+            offsetX = 0;
+            offsetY = (canvasHeight - drawHeight) / 2;
+          }
+
+          // Create scaled canvas for pattern
+          const offCanvas = document.createElement('canvas');
+          offCanvas.width = canvasWidth;
+          offCanvas.height = canvasHeight;
+          const offCtx = offCanvas.getContext('2d');
+
+          // Draw scaled image to cover the canvas
+          offCtx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+
           if (mergedParams.color) {
-            const offCanvas = document.createElement('canvas');
-            offCanvas.width = img.width;
-            offCanvas.height = img.height;
-            const offCtx = offCanvas.getContext('2d');
-
-            offCtx.drawImage(img, 0, 0);
-
             offCtx.globalCompositeOperation = 'multiply';
             offCtx.fillStyle = mergedParams.color;
             offCtx.fillRect(0, 0, offCanvas.width, offCanvas.height);
-
             offCtx.globalCompositeOperation = 'source-over';
-
-            mergedParams.pattern = ctx.createPattern(offCanvas, 'no-repeat');
-          } else {
-            mergedParams.pattern = ctx.createPattern(img, 'no-repeat');
           }
+
+          mergedParams.pattern = ctx.createPattern(offCanvas, 'no-repeat');
         }
 
         const engine = new BrushEngine(canvasRef.current, mergedParams);
