@@ -32,6 +32,9 @@ export async function POST(request) {
     // Add query to Google Spreadsheet
     const query = await AddQuery({ name, email, phone, subject, message }, 'contact');
 
+    //Todo: Integrate email notification service here (e.g., SendGrid, Nodemailer)
+
+    // Return success response
     return NextResponse.json(
       {
         success: true,

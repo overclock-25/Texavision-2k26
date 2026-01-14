@@ -6,6 +6,7 @@ export async function AddQuery(formData, sheetName) {
   try {
     const doc = await Document(SPREADSHEET_ID);
     const sheet = doc.sheetsByTitle[sheetName];
+
     // Add new query to the sheet
     const query = await sheet.addRow({
       name: formData.name,
