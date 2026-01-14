@@ -110,3 +110,38 @@ p {
     text-shadow: none;
   }
 }
+
+.hero svg path {
+  fill: transparent;
+  stroke: white;
+  stroke-width: 1.5;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: textAnimation 5s ease-in-out 1 forwards;
+}
+
+@keyframes textAnimation {
+  0% {
+    stroke-dashoffset: 400;
+    fill: transparent;
+  }
+
+  80% {
+    stroke-dashoffset: 200;
+    fill: transparent;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    fill: white;
+  }
+}
+
+@layer utilities {
+  .outline-text {
+    -webkit-text-stroke: 1px white;
+    text-shadow:
+      0 0 10px rgba(255, 255, 255, 0.35),
+      0 0 24px rgba(255, 255, 255, 0.15);
+  }
+}
