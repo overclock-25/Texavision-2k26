@@ -1,13 +1,13 @@
 'use client';
 import { useRef, useEffect, useState } from 'react';
 import { useBrushstroke } from '@/hooks/useBrushstroke';
-import { color, useInView } from 'framer-motion';
+import { useInView } from 'motion/react';
 
 export default function BrushRevealImage({ src, alt, className, ...props }) {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.3 });
-  const { draw, clear } = useBrushstroke(canvasRef);
+  const { draw } = useBrushstroke(canvasRef);
   const [scaledSrc, setScaledSrc] = useState(null);
 
   useEffect(() => {
