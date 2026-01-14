@@ -39,29 +39,29 @@ const GraffitiText = ({ text = 'CONTACT', className = '' }) => {
     );
 
     // Add hover animations
-    lettersRef.current.forEach((letter) => {
-      if (!letter) return;
+    // lettersRef.current.forEach((letter) => {
+    //   if (!letter) return;
 
-      letter.addEventListener('mouseenter', () => {
-        gsap.to(letter, {
-          scale: 1.3,
-          rotation: gsap.utils.random(-20, 20),
-          color: gsap.utils.random(['#4c1d95', '#be123c', '#14b8a6', '#1e40af']),
-          duration: 0.3,
-          ease: 'power2.out',
-        });
-      });
+    //   letter.addEventListener('mouseenter', () => {
+    //     gsap.to(letter, {
+    //       scale: 1.3,
+    //       rotation: gsap.utils.random(-20, 20),
+    //       color: gsap.utils.random(['#4c1d95', '#be123c', '#14b8a6', '#1e40af']),
+    //       duration: 0.3,
+    //       ease: 'power2.out',
+    //     });
+    //   });
 
-      letter.addEventListener('mouseleave', () => {
-        gsap.to(letter, {
-          scale: 1,
-          rotation: gsap.utils.random(-5, 5),
-          color: '#4c1d95',
-          duration: 0.3,
-          ease: 'power2.out',
-        });
-      });
-    });
+    //   letter.addEventListener('mouseleave', () => {
+    //     gsap.to(letter, {
+    //       scale: 1,
+    //       rotation: gsap.utils.random(-5, 5),
+    //       color: '#4c1d95',
+    //       duration: 0.3,
+    //       ease: 'power2.out',
+    //     });
+    //   });
+    // });
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());

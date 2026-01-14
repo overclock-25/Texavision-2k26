@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Twitter, Youtube } from 'lucide-react';
 import SpriteHeader from '@/components/shared/texts/SpriteHeader';
+import DripIcon from '@/components/shared/Icons/DripIcon';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -369,6 +370,7 @@ const ContactInfo = () => {
               label="YouTube"
               bgColor="#FF0000"
             />
+            {/* <DripIcon color='#000000' icon={Facebook} iconColor = 'white' /> */}
           </div>
         </div>
       </div>

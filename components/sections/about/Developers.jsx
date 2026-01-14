@@ -1,3 +1,5 @@
+'use client';
+import DripIcon from '@/components/shared/Icons/DripIcon';
 import { SplashGif } from '@/components/shared/utils/SplashGifOverlay';
 import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react';
 import React from 'react';
@@ -60,10 +62,14 @@ const Developers = () => {
                 </p> */}
               <div className="flex">
                 <a href={devs[index].linkedIn} className="mx-2 text-blue-600">
-                  <IconBrandLinkedin className="h-10 w-10" />
+                  <DripIcon color="blue" iconColor="white">
+                    <IconBrandLinkedin size={32} className="text-white" />
+                  </DripIcon>
                 </a>
                 <a href={devs[index].github} className="mx-2 text-gray-800">
-                  <IconBrandGithub className="h-10 w-10" />
+                  <DripIcon color="gray" iconColor="white">
+                    <IconBrandGithub size={32} className="text-white" />
+                  </DripIcon>
                 </a>
               </div>
             </div>

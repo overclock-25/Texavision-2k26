@@ -10,7 +10,7 @@ const About = () => {
     <div className="bg-vanilla-cream flex flex-col">
       <Hero />
       <TornEdge0
-        upSectionColor="#fef3c7"
+        upSectionColor="#000000"
         edgeColor="#ffffff"
         className="-mt-px overflow-hidden"
         downSectionColor="#f3f4f6"

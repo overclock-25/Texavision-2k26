@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronDown } from 'lucide-react';
 import SpriteHeader from '@/components/shared/texts/SpriteHeader';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -119,7 +120,7 @@ const FAQ = () => {
   };
 
   return (
-    <section ref={sectionRef} className="bg-vanilla-cream px-4 py-20 md:px-8 lg:px-16">
+    <section ref={sectionRef} className="relative bg-transparent px-4 py-20 md:px-8 lg:px-16">
       <div className="mx-auto max-w-3xl">
         <SpriteHeader
           heading="Got Questions?"
@@ -128,11 +129,11 @@ const FAQ = () => {
           orientation="vertical"
           frameAspectRatio={1280 / 720}
           brushColor="#4c1d95"
-          bgColorClass="bg-vanilla-cream"
+          bgColorClass="bg-transparent"
           textColorClass="text-vanilla-cream"
           duration={1.5}
         />
-        <p className="faq-title text-dark-text/70 mx-auto mb-12 max-w-2xl text-center text-lg">
+        <p className="faq-title mx-auto mb-12 max-w-2xl text-center text-lg text-white/70">
           We&apos;ve got answers! Check out our frequently asked questions.
         </p>
 
@@ -148,6 +149,13 @@ const FAQ = () => {
           ))}
         </div>
       </div>
+      <Image
+        src="/images/png/faq-bg.jpg"
+        alt="FAQ Decor"
+        width={400}
+        height={400}
+        className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover brightness-20 select-none"
+      />
     </section>
   );
 };
