@@ -14,7 +14,7 @@ const Footer2 = () => {
       <Image src={footer} alt="Footer Background" fill className="object-cover" priority />
 
       {/* Black Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/60" />
 
       {/* Top Gradient */}
       <div className="absolute top-0 right-0 left-0 h-24 bg-linear-to-b from-black to-transparent" />
