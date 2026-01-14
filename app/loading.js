@@ -1,5 +1,3 @@
-import Logo from '@/public/hero/texavision.svg';
-
 const Loading = () => {
   return (
     <div className="h-screen w-full overflow-hidden">

@@ -22,12 +22,11 @@ const TornEdge0 = ({
         viewBox="0 0 1834 90"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        // transform='rotate(180deg)'
         style={{
           width: '100%',
           height: 'auto',
           display: 'block',
-          rotate: version === 'rotated' ? '180deg' : '0deg',
+          transform: version === 'rotated' ? 'rotateX(180deg)' : 'none',
         }}
       >
         <path
