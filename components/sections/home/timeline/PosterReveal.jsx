@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
-import PosterImage from '@/assets/images/home/poster-dummy.jpg';
+import PosterImage from '@/assets/images/home/poster.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,9 +95,11 @@ export default function BrushSwipeAnimation() {
       <div ref={containerRef} className="relative z-1 mx-auto w-full overflow-hidden">
         <div className="relative top-0 left-0 h-fit w-full bg-transparent p-10 md:p-30">
           <Image
-            src={PosterImage}
+            src={PosterImage.src}
             alt="Poster Background"
             className="h-auto w-full object-contain"
+            height={100}
+            width={100}
           />
         </div>
         {/* White Overlay with Brush Stroke Masks */}

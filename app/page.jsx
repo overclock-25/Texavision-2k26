@@ -6,9 +6,8 @@ import Sponsors from '@/components/sections/home/sponsors/Sponsors';
 import Events from '@/components/sections/home/events/Events';
 import Timeline from '@/components/sections/home/timeline/Timeline';
 import TornEdge from '@/components/shared/edges/TornEdge0';
-import Header from '@/components/shared/texts/Header';
 import SpriteHeader from '@/components/shared/texts/SpriteHeader';
-const Home = () => {
+const Home = async () => {
   return (
     <>
       <Hero />
@@ -16,7 +15,7 @@ const Home = () => {
       <TornEdge
         upSectionColor="#000000"
         edgeColor="#ffffff"
-        className="mt-[-1px] overflow-hidden"
+        className="overflow-hidden"
         downSectionColor="#faf5ee"
       />
       <SpriteHeader
@@ -30,7 +29,7 @@ const Home = () => {
         textColorClass="text-sand-light"
         duration={1.5}
       />
-      {/* <Timeline /> */}
+      <Timeline />
       <TornEdge
         upSectionColor="#faf5ee"
         edgeColor="#ffffff"
@@ -53,8 +52,6 @@ const Home = () => {
       />
       <Merch />
       <Gallery />
-      {/* Remove when whole page is done, this is for poster scroll */}
-      <div className="h-[200vh]"></div>
       <TornEdge
         upSectionColor="#ffffff"
         edgeColor="#ffffff"
