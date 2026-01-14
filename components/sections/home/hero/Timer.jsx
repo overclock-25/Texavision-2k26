@@ -26,11 +26,11 @@ function getTimeLeft(targetTime) {
 
   return {
     ...values,
-    done: remaining === 0 && targetTime <= Date.now(),
+    done: targetTime <= Date.now(),
   };
 }
 
-const CountdownTimer = ({ target, delay = '0' }) => {
+const CountdownTimer = ({ target, delay = 0 }) => {
   const [render, setRender] = useState(false);
   const isMounted = useMounted();
 
