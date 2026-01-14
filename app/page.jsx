@@ -51,6 +51,12 @@ const Home = async () => {
         downSectionColor="#000000"
       />
       <Merch />
+      <TornEdge
+        upSectionColor="#000000"
+        edgeColor="#ffffff"
+        className="overflow-hidden"
+        downSectionColor="#faf5ee"
+      />
       <Gallery />
       <TornEdge
         upSectionColor="#ffffff"
