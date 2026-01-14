@@ -11,7 +11,7 @@ const eventsData = [
   },
   {
     id: 2,
-    image: '/events/2.jpg',
+    image: '/events/4.jpg',
   },
   {
     id: 3,
@@ -19,15 +19,15 @@ const eventsData = [
   },
   {
     id: 4,
-    image: '/events/4.jpg',
+    image: '/events/2.jpg',
   },
   {
     id: 5,
-    image: '/events/5.jpg',
+    image: '/events/6.jpg',
   },
   {
     id: 6,
-    image: '/events/6.jpg',
+    image: '/events/5.jpg',
   },
 ];
 

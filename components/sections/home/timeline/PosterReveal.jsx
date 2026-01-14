@@ -98,8 +98,8 @@ export default function BrushSwipeAnimation() {
             src={PosterImage.src}
             alt="Poster Background"
             className="h-auto w-full object-contain"
-            height={100}
-            width={100}
+            height={1000}
+            width={1000}
           />
         </div>
         {/* White Overlay with Brush Stroke Masks */}
