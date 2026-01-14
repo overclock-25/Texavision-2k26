@@ -3,6 +3,7 @@ import '../assets/stylesheets/css/utils.css';
 import fonts from './font';
 import SmoothScrolling from '@/wrappers/SmoothScrolling';
 import Footer from '@/components/shared/footer/Footer';
+import Navbar from '@/components/shared/navbar/Navbar';
 
 export const metadata = {
   title: 'Texavision-2k26',
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${fontsArrayVars.join(' ')} antialiased`}>
         <SmoothScrolling>
+          <Navbar />
           {children}
           <Footer />
         </SmoothScrolling>

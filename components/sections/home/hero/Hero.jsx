@@ -47,7 +47,7 @@ const Hero = () => {
         bgImage="hero/4/img.jpg"
       />
 
-      <div className="hero absolute z-200 flex h-screen w-full flex-col items-center justify-center gap-10">
+      <div className="hero absolute z-100 flex h-screen w-full flex-col items-center justify-center gap-10">
         <Logo className="h-auto w-[80vw] max-w-200" />
         <CountdownTimer target={'2026-01-25T00:00:00+05:30'} delay={DELAY} />
       </div>
