@@ -1,5 +1,6 @@
 'use client';
 import { useMounted } from '@/hooks/useMounted';
+import { useRender } from '@/hooks/useRender';
 import { useEffect, useState } from 'react';
 
 const UNITS = [
@@ -31,16 +32,8 @@ function getTimeLeft(targetTime) {
 }
 
 const CountdownTimer = ({ target, delay = 0 }) => {
-  const [render, setRender] = useState(false);
   const isMounted = useMounted();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setRender(true);
-    }, delay);
-
-    return () => clearTimeout(timer);
-  }, [delay]);
+  const render = useRender(delay);
 
   const targetTime =
     typeof target === 'string' || target instanceof Date ? new Date(target).getTime() : target;

@@ -1,11 +1,15 @@
 'use client';
+import { ContactUsLink } from '@/components/sections/home/hero/ContactUsLink';
 import { SplashGif } from '@/components/sections/home/hero/SplashGif';
 import { CountdownTimer } from '@/components/sections/home/hero/Timer';
 import Logo from '@/public/hero/texavision.svg';
 
+import { ScrollDownArrow } from '@/components/sections/home/hero/ScrollDownArrow';
 import { useIsMobile } from '@/hooks/useMobile';
 
 const DELAY = 3000;
+const CONTACT_LINK = 'https://cal.com/texavision-2k26/30min';
+const TIMER_TARGET = '2026-01-25T00:00:00+05:30';
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -49,8 +53,12 @@ const Hero = () => {
 
       <div className="hero absolute z-100 flex h-screen w-full flex-col items-center justify-center gap-10">
         <Logo className="h-auto w-[80vw] max-w-200" />
-        <CountdownTimer target={'2026-01-25T00:00:00+05:30'} delay={DELAY} />
+        <CountdownTimer target={TIMER_TARGET} delay={DELAY} />
+        <div />
+        <ContactUsLink link={CONTACT_LINK} delay={DELAY} />
       </div>
+
+      <ScrollDownArrow delay={DELAY} />
     </div>
   );
 };
