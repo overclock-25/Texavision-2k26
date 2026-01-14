@@ -51,19 +51,19 @@ const Home = async () => {
         downSectionColor="#000000"
       />
       <Merch />
-      <TornEdge
+      {/* <TornEdge
         upSectionColor="#000000"
         edgeColor="#ffffff"
         className="overflow-hidden"
         downSectionColor="#faf5ee"
-      />
+      /> */}
       <Gallery />
-      <TornEdge
+      {/* <TornEdge
         upSectionColor="#ffffff"
         edgeColor="#ffffff"
         className="overflow-hidden"
         downSectionColor="#000000"
-      />
+      /> */}
     </>
   );
 };
