@@ -145,3 +145,59 @@ p {
       0 0 24px rgba(255, 255, 255, 0.15);
   }
 }
+
+.mask-layer {
+  position: absolute;
+  inset: 0;
+
+  background-image: url('/hero/bg.jpg');
+  background-size: contain;
+  background-position: center;
+  filter: brightness(1.2) blur(2px);
+
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+}
+
+.mask-0 {
+  mask-image: url('/button/0.png');
+  -webkit-mask-image: url('/button/0.png');
+  mask-size: 100% auto;
+  mask-position: 50% 20%;
+}
+
+.mask-1 {
+  mask-image: url('/button/1.png');
+  -webkit-mask-image: url('/button/1.png');
+  mask-size: auto 60%;
+  mask-position: 20% 40%;
+  transition: mask-position 0.6s ease-in-out;
+}
+
+.mask-2 {
+  mask-image: url('/button/2.png');
+  -webkit-mask-image: url('/button/2.png');
+  mask-size: auto 60%;
+  mask-position: 65% 40%;
+  transition: mask-position 1.2s ease-in-out;
+}
+
+.mask-3 {
+  mask-image: url('/button/3.png');
+  -webkit-mask-image: url('/button/3.png');
+  mask-size: auto 60%;
+  mask-position: 80% 30%;
+  transition: mask-position 0.8s ease-out;
+}
+
+.masked-wrapper:hover .mask-1 {
+  mask-position: 20% 100%;
+}
+
+.masked-wrapper:hover .mask-2 {
+  mask-position: 65% 100%;
+}
+
+.masked-wrapper:hover .mask-3 {
+  mask-position: 80% 100%;
+}

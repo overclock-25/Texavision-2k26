@@ -1,6 +1,7 @@
 'use client';
 import { SplashGif } from '@/components/sections/home/hero/SplashGif';
 import { CountdownTimer } from '@/components/sections/home/hero/Timer';
+import { Button } from '@/components/shared/buttons/Button';
 import Logo from '@/public/hero/texavision.svg';
 
 import { useIsMobile } from '@/hooks/useMobile';
@@ -50,6 +51,8 @@ const Hero = () => {
       <div className="hero absolute z-100 flex h-screen w-full flex-col items-center justify-center gap-10">
         <Logo className="h-auto w-[80vw] max-w-200" />
         <CountdownTimer target={'2026-01-25T00:00:00+05:30'} delay={DELAY} />
+        <div />
+        <Button delay={DELAY} />
       </div>
     </div>
   );
