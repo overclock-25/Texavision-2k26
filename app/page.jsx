@@ -3,6 +3,7 @@ import Hero from '@/components/sections/home/hero/Hero';
 import Merch from '@/components/sections/home/merch/Merch';
 import Performances from '@/components/sections/home/performances/Performances';
 import Sponsors from '@/components/sections/home/sponsors/Sponsors';
+import Events from '@/components/sections/home/events/Events';
 import Timeline from '@/components/sections/home/timeline/Timeline';
 import TornEdge from '@/components/shared/edges/TornEdge0';
 import Header from '@/components/shared/texts/Header';
@@ -41,7 +42,14 @@ const Home = () => {
         upSectionColor="#000000"
         edgeColor="#ffffff"
         className="overflow-hidden"
-        downSectionColor="#faf5ee"
+        downSectionColor="#d4d4d4"
+      />
+      <Events />
+      <TornEdge
+        upSectionColor="#d4d4d4"
+        edgeColor="#ffffff"
+        className="overflow-hidden"
+        downSectionColor="#000000"
       />
       <Merch />
       <Gallery />

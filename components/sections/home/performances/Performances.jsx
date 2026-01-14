@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import panicImg from '@/assets/images/home/panic.webp';
 import trap from '@/assets/images/home/trap.webp';
 import didi from '@/assets/images/home/music.webp';
+import dada from '@/assets/images/home/br.jpg';
 import Header from '@/components/shared/texts/Header';
 import DateCard from '@/components/ui/DateCard';
 import CarouselCard from '@/components/ui/CarouselCard';
@@ -13,24 +14,32 @@ import BrushTransitionImage from '@/components/ui/BrushTransitionImage';
 const performanceData = [
   {
     id: 1,
-    date: '14',
-    month: 'Feb',
+    date: '26',
+    month: 'Jan',
     year: '2026',
     title: 'Opening Night',
     image: didi,
   },
   {
     id: 2,
-    date: '15',
-    month: 'Feb',
+    date: '26',
+    month: 'Jan',
+    year: '2026',
+    title: 'Opening Night',
+    image: dada,
+  },
+  {
+    id: 3,
+    date: '27',
+    month: 'Jan',
     year: '2026',
     title: 'Main Event',
     image: panicImg,
   },
   {
-    id: 3,
-    date: '16',
-    month: 'Feb',
+    id: 4,
+    date: '28',
+    month: 'Jan',
     year: '2026',
     title: 'Grand Finale',
     image: trap,
@@ -63,17 +72,21 @@ const Performances = () => {
     const isSelected = offset === 0;
     const absOffset = Math.abs(offset);
 
+    // Only show selected and ±1 cards (3 visible at a time)
+    const isVisible = absOffset <= 1;
+
     // 3D positioning
     const translateX = offset * 160;
     const translateZ = isSelected ? 0 : -150 - absOffset * 50;
     const rotateY = offset * -35;
     const scale = isSelected ? 1 : 0.75;
-    const opacity = absOffset > 1 ? 0.4 : isSelected ? 1 : 0.7;
+    const opacity = isVisible ? (isSelected ? 1 : 0.7) : 0;
 
     return {
       transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
       zIndex: isSelected ? 30 : 10 - absOffset,
       opacity,
+      pointerEvents: isVisible ? 'auto' : 'none',
     };
   };
 
@@ -185,6 +198,9 @@ const Performances = () => {
                       isSelected={isSelected}
                       onClick={() => setSelectedIndex(index)}
                       style={carouselStyle}
+                      index={index}
+                      selectedIndex={selectedIndex}
+                      totalCards={performanceData.length}
                     />
                   );
                 })}
