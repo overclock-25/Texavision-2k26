@@ -9,7 +9,7 @@ const Timeline = () => {
     <div className="bg-sand-light relative overflow-hidden">
       <div className="absolute top-0 left-0 z-0 h-full w-full">
         {/* <Image src={PosterBg.src} alt="Timeline" className="h-auto w-full" /> */}
-        <PosterBg className="h-auto w-full" />
+        <PosterBg className="h-full w-full" />
       </div>
 
       <div className="relative">
