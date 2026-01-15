@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from 'react';
 
 const useCursor = () => {
@@ -12,19 +13,32 @@ const useCursor = () => {
       });
     };
 
-    const handleMouseOver = (e) => {
+    const handleMouseEnter = (e) => {
       const isInteractive =
         e.target.matches('a, button, [role="button"], input, textarea, select') ||
         e.target.closest('a, button, [role="button"]');
-      setIsHovering(!!isInteractive);
+      if (isInteractive) {
+        setIsHovering(true);
+      }
+    };
+
+    const handleMouseLeave = (e) => {
+      const isInteractive =
+        e.target.matches('a, button, [role="button"], input, textarea, select') ||
+        e.target.closest('a, button, [role="button"]');
+      if (isInteractive) {
+        setIsHovering(false);
+      }
     };
 
     document.addEventListener('mousemove', updateMousePosition);
-    document.addEventListener('mouseover', handleMouseOver);
+    document.addEventListener('mouseenter', handleMouseEnter, true);
+    document.addEventListener('mouseleave', handleMouseLeave, true);
 
     return () => {
       document.removeEventListener('mousemove', updateMousePosition);
-      document.removeEventListener('mouseover', handleMouseOver);
+      document.removeEventListener('mouseenter', handleMouseEnter, true);
+      document.removeEventListener('mouseleave', handleMouseLeave, true);
     };
   }, []);
 

@@ -1,9 +1,13 @@
 'use client';
 
 import useCursor from '@/hooks/useCursor';
+import { useIsMobile } from '@/hooks/useMobile';
 
 const CustomCursor = () => {
   const { mousePosition, isHovering } = useCursor();
+  const isMobile = useIsMobile();
+
+  if (isMobile) return null;
 
   return (
     <>
@@ -19,8 +23,8 @@ const CustomCursor = () => {
         }}
       >
         <div
-          className={`h-5 w-5 rounded-full border-2 transition-all duration-300 ${
-            isHovering && 'h-6 w-6 animate-pulse border-white'
+          className={`h-5 w-5 rounded-full border-2 border-white transition-all duration-300 ${
+            isHovering && 'h-6 w-6 animate-pulse'
           }`}
         />
       </div>
@@ -36,7 +40,7 @@ const CustomCursor = () => {
       >
         <div
           className={`h-4 w-4 rounded-full bg-white transition-all duration-200 ${
-            isHovering ? 'scale-70' : 'scale-100'
+            isHovering ? 'scale-75' : 'scale-100'
           }`}
         />
       </div>

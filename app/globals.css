@@ -4,7 +4,7 @@
 * {
   cursor: none !important;
   scrollbar-width: thin;
-  scrollbar-color: dark black;
+  scrollbar-color: rgb(41, 41, 41) black;
   -ms-overflow-style: thin;
 }
 

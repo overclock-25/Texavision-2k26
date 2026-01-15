@@ -1,4 +1,4 @@
-import CustomCursor from '@/components/shared/CustomCursor';
+import CustomCursor from '@/components/shared/utils/CustomCursor';
 import Footer from '@/components/shared/footer/Footer';
 import Navbar from '@/components/shared/navbar/Navbar';
 import SmoothScrolling from '@/wrappers/SmoothScrolling';
