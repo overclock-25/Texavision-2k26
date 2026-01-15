@@ -72,17 +72,20 @@ const sponsorsData = [
 
 const Sponsors = () => {
   return (
-    <div className="h-fit bg-black py-8">
-      <div className="font-grindy-brush flex justify-center text-white">
-        <h2>Our Sponsors</h2>
+    <div className="h-fit bg-black py-16">
+      <div className="font-grindy-brush flex flex-col items-center justify-center gap-16 text-white">
+        <h2 className="text-4xl">Our Sponsors</h2>
+        <p className="font-drunk-millionaire! text-7xl!">Will be REVEALED SOON</p>
       </div>
-      <MarqueeAnimation duration={30} direction="left" className="p-8">
+
+      {/* //TODO */}
+      {/* <MarqueeAnimation duration={30} direction="left" className="p-8">
         {sponsorsData.map((sponsor) => (
           <Link href={sponsor.website} key={sponsor.id} className="bg-cream m-8 p-4">
             <Image height={100} width={100} src={sponsor.logoSrc} alt={sponsor.name} />
           </Link>
         ))}
-      </MarqueeAnimation>
+      </MarqueeAnimation> */}
     </div>
   );
 };

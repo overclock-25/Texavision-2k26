@@ -7,6 +7,7 @@ import Events from '@/components/sections/home/events/Events';
 import Timeline from '@/components/sections/home/timeline/Timeline';
 import TornEdge from '@/components/shared/edges/TornEdge0';
 import SpriteHeader from '@/components/shared/texts/SpriteHeader';
+import ComingSoon from '@/components/shared/utils/ComingSoon';
 const Home = async () => {
   return (
     <>
@@ -36,7 +37,13 @@ const Home = async () => {
         className="overflow-hidden"
         downSectionColor="#000000"
       />
-      <Performances />
+      {/* //TODO */}
+      {/* <Performances /> */}
+      <ComingSoon version="black" className="gap-12 py-16">
+        <div className="text-4xl">Performances Loading...</div>
+        <div className="font-rubik-marker-hatch text-8xl">Almost Showtime</div>
+      </ComingSoon>
+
       <TornEdge
         upSectionColor="#000000"
         edgeColor="#ffffff"
@@ -57,9 +64,16 @@ const Home = async () => {
         className="overflow-hidden"
         downSectionColor="#faf5ee"
       />
-      <Gallery />
+
+      <ComingSoon className="gap-12 py-16">
+        <div className="font-medieval-sharp text-6xl font-bold">Through the Lens</div>
+        <div className="font-rubik-wet-paint text-8xl">Worth the wait</div>
+      </ComingSoon>
+
+      {/* //TODO */}
+      {/* <Gallery /> */}
       <TornEdge
-        upSectionColor="#ffffff"
+        upSectionColor="var(--color-cream)"
         edgeColor="#ffffff"
         className="overflow-hidden"
         downSectionColor="#000000"
