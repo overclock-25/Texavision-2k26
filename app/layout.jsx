@@ -26,6 +26,7 @@ const fontsArrayVars = [
   fonts.rubikWetPaint.variable,
   fonts.rubikMarkerHatch.variable,
   fonts.rubikMaps.variable,
+  fonts.oi.variable,
 ];
 
 export default function RootLayout({ children }) {
