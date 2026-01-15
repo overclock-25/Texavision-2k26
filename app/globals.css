@@ -113,6 +113,7 @@ svg {
   --font-rubik-maps: var(--font-rubik-maps);
 
   --font-medieval-sharp: var(--font-medieval-sharp);
+  --font-oi: var(--font-oi);
 }
 
 body {
@@ -140,7 +141,7 @@ p {
 }
 
 h2 {
-  @apply font-protest-revolution font-extrabold;
+  @apply font-grindy-brush font-extrabold;
 }
 
 h3 {

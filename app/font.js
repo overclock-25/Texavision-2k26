@@ -8,6 +8,7 @@ import {
   Rubik_Maps,
   Rubik_Wet_Paint,
   Rubik_Glitch_Pop,
+  Oi,
 } from 'next/font/google';
 
 const abegnale = localFont({
@@ -113,6 +114,13 @@ const rubikMaps = Rubik_Maps({
   display: 'swap',
 });
 
+const oi = Oi({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-oi',
+  display: 'swap',
+});
+
 const fonts = {
   abegnale,
   centrion,
@@ -128,6 +136,7 @@ const fonts = {
   rubikMarkerHatch,
   medievalSharp,
   rubikMaps,
+  oi,
 };
 
 export default fonts;

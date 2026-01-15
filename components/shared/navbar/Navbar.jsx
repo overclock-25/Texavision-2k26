@@ -187,7 +187,7 @@ const Navbar = () => {
                 alt="Paper Edge"
                 width={1834}
                 height={90}
-                className="block h-full w-auto object-cover brightness-80 sepia-50 md:h-auto md:w-full"
+                className="block h-full w-auto object-cover brightness-80 md:h-auto md:w-full"
                 priority
                 style={{ zIndex: 10 }}
               />
