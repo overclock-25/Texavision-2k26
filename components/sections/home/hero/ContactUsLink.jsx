@@ -1,3 +1,4 @@
+'use client';
 import { useRender } from '@/hooks/useRender';
 
 const ContactUsLink = ({ link, delay }) => {
@@ -5,7 +6,7 @@ const ContactUsLink = ({ link, delay }) => {
 
   return (
     <div
-      className={`masked-wrapper absolute bottom-40 z-100 flex h-40 w-50 justify-center py-12 opacity-0 transition-opacity duration-1000 md:bottom-10 ${render && 'opacity-100'}`}
+      className={`masked-wrapper relative z-100 flex h-40 w-50 justify-center py-12 opacity-0 transition-opacity duration-1000 ${render && 'opacity-100'}`}
     >
       <div className="pointer-events-none z-100 text-center text-white">Contact Us</div>
       <a href={link} target="_blank" rel="noopener noreferrer">

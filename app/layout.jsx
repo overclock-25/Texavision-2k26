@@ -1,9 +1,9 @@
-import './globals.css';
-import '../assets/stylesheets/css/utils.css';
-import fonts from './font';
-import SmoothScrolling from '@/wrappers/SmoothScrolling';
 import Footer from '@/components/shared/footer/Footer';
 import Navbar from '@/components/shared/navbar/Navbar';
+import SmoothScrolling from '@/wrappers/SmoothScrolling';
+import '../assets/stylesheets/css/utils.css';
+import fonts from './font';
+import './globals.css';
 
 export const metadata = {
   title: 'Texavision-2k26',
