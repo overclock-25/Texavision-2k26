@@ -39,9 +39,9 @@ const Home = async () => {
       />
       {/* //TODO */}
       {/* <Performances /> */}
-      <ComingSoon version="black" className="gap-12 py-16">
-        <div className="text-4xl">Performances Loading...</div>
-        <div className="font-rubik-marker-hatch text-8xl">Almost Showtime</div>
+      <ComingSoon version="black" className="gap-12 py-16 text-center">
+        <div className="text-2xl md:text-4xl">Performances Loading...</div>
+        <div className="font-rubik-marker-hatch text-4xl md:text-8xl">Almost Showtime</div>
       </ComingSoon>
 
       <TornEdge
@@ -65,9 +65,9 @@ const Home = async () => {
         downSectionColor="#faf5ee"
       />
 
-      <ComingSoon className="gap-12 py-16">
+      <ComingSoon className="gap-12 py-16 text-center">
         <div className="font-medieval-sharp text-6xl font-bold">Through the Lens</div>
-        <div className="font-rubik-wet-paint text-8xl">Worth the wait</div>
+        <div className="font-rubik-wet-paint text-4xl md:text-8xl">Worth the wait</div>
       </ComingSoon>
 
       {/* //TODO */}

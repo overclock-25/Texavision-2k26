@@ -183,11 +183,11 @@ const Navbar = () => {
 
             <div className="absolute top-4 h-full w-full md:top-2 xl:-top-4">
               <Image
-                src="/svgs/paper-edge.png"
+                src="/svgs/paper-edge-1.png"
                 alt="Paper Edge"
                 width={1834}
                 height={90}
-                className="block h-full w-auto object-cover brightness-80 md:h-auto md:w-full"
+                className="block h-full w-auto object-cover md:h-auto md:w-full"
                 priority
                 style={{ zIndex: 10 }}
               />
