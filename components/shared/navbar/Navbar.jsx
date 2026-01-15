@@ -133,7 +133,7 @@ const Navbar = () => {
                 </li>
                 <li className="hidden md:block">
                   <ul className="flex w-36 flex-col items-end gap-1">
-                    <BrushLink href="/contact">Ayaschya</BrushLink>
+                    <BrushLink href="https://ayaschya26.aitihya.co.in">Ayaschya</BrushLink>
                   </ul>
                 </li>
                 <li className="block md:hidden">
@@ -172,7 +172,7 @@ const Navbar = () => {
                       <BrushLink href="/contact">Contact</BrushLink>
                     </li>
                     <li onClick={() => setIsMenuOpen(false)} className="mt-4">
-                      <BrushLink href="/contact">Ayaschya</BrushLink>
+                      <BrushLink href="https://ayaschya26.aitihya.co.in">Ayaschya</BrushLink>
                     </li>
                   </ul>
                 </motion.div>
