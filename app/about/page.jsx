@@ -9,15 +9,15 @@ const About = () => {
   return (
     <div className="bg-vanilla-cream flex flex-col">
       <Hero />
-      <TornEdge0
+      {/* <TornEdge0
         upSectionColor="#000000"
         edgeColor="#ffffff"
         className="-mt-px overflow-hidden"
         downSectionColor="#f3f4f6"
-      />
+      /> */}
       <Animation />
       <TornEdge0
-        upSectionColor="#f3f4f6"
+        upSectionColor="#000000"
         edgeColor="#ffffff"
         className="-mt-px overflow-hidden"
         downSectionColor="#fef3c7"
