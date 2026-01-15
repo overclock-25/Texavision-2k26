@@ -9,7 +9,7 @@ const Gallery = () => {
     <div
       className="from-sand to-cream relative bg-linear-to-b pt-24"
       style={{
-        backgroundImage: 'url(/svgs/soft.jpg)',
+        backgroundImage: 'url(/svgs/gallery-bg.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

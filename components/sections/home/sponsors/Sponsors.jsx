@@ -75,7 +75,9 @@ const Sponsors = () => {
     <div className="h-fit bg-black py-16">
       <div className="font-grindy-brush flex flex-col items-center justify-center gap-16 text-white">
         <h2 className="text-4xl">Our Sponsors</h2>
-        <p className="font-drunk-millionaire! text-7xl!">Will be REVEALED SOON</p>
+        <p className="font-drunk-millionaire! px-2 text-center text-4xl! md:text-7xl!">
+          Will be REVEALED SOON
+        </p>
       </div>
 
       {/* //TODO */}

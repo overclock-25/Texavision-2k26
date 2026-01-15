@@ -1,6 +1,6 @@
 # General Setup - Next.js
 
-A well-structured Next.js project template with organized folder structure for scalable application development.
+This is a well-structured Next.js project template with organized folder structure for scalable application development.
 
 ## 📁 Project Structure
 
