@@ -1,8 +1,9 @@
-import './globals.css';
+import Footer from '@/components/shared/footer/Footer';
+import Navbar from '@/components/shared/navbar/Navbar';
+import SmoothScrolling from '@/wrappers/SmoothScrolling';
 import '../assets/stylesheets/css/utils.css';
 import fonts from './font';
-import SmoothScrolling from '@/wrappers/SmoothScrolling';
-import Footer from '@/components/shared/footer/Footer';
+import './globals.css';
 
 export const metadata = {
   title: 'Texavision-2k26',
@@ -25,6 +26,7 @@ const fontsArrayVars = [
   fonts.rubikWetPaint.variable,
   fonts.rubikMarkerHatch.variable,
   fonts.rubikMaps.variable,
+  fonts.oi.variable,
 ];
 
 export default function RootLayout({ children }) {
@@ -32,6 +34,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${fontsArrayVars.join(' ')} antialiased`}>
         <SmoothScrolling>
+          <Navbar />
           {children}
           <Footer />
         </SmoothScrolling>

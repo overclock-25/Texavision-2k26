@@ -1,10 +1,22 @@
 import React from 'react';
 
-const TornEdge0 = ({ upSectionColor, edgeColor, downSectionColor, className }) => {
+const TornEdge0 = ({
+  upSectionColor,
+  edgeColor,
+  downSectionColor,
+  className,
+  version = 'normal',
+}) => {
   return (
     <div
       className={className}
-      style={{ width: '100%', overflow: 'hidden', backgroundColor: downSectionColor || edgeColor }}
+      style={{
+        width: '100%',
+        overflow: 'hidden',
+        backgroundColor: downSectionColor || edgeColor,
+        marginTop: '-1px',
+        marginBottom: '-1px',
+      }}
     >
       <svg
         viewBox="0 0 1834 90"
@@ -14,6 +26,7 @@ const TornEdge0 = ({ upSectionColor, edgeColor, downSectionColor, className }) =
           width: '100%',
           height: 'auto',
           display: 'block',
+          transform: version === 'rotated' ? 'rotateX(180deg)' : 'none',
         }}
       >
         <path

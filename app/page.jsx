@@ -6,9 +6,9 @@ import Sponsors from '@/components/sections/home/sponsors/Sponsors';
 import Events from '@/components/sections/home/events/Events';
 import Timeline from '@/components/sections/home/timeline/Timeline';
 import TornEdge from '@/components/shared/edges/TornEdge0';
-import Header from '@/components/shared/texts/Header';
 import SpriteHeader from '@/components/shared/texts/SpriteHeader';
-const Home = () => {
+import ComingSoon from '@/components/shared/utils/ComingSoon';
+const Home = async () => {
   return (
     <>
       <Hero />
@@ -16,7 +16,7 @@ const Home = () => {
       <TornEdge
         upSectionColor="#000000"
         edgeColor="#ffffff"
-        className="mt-[-1px] overflow-hidden"
+        className="overflow-hidden"
         downSectionColor="#faf5ee"
       />
       <SpriteHeader
@@ -37,7 +37,13 @@ const Home = () => {
         className="overflow-hidden"
         downSectionColor="#000000"
       />
-      <Performances />
+      {/* //TODO */}
+      {/* <Performances /> */}
+      <ComingSoon version="black" className="gap-12 py-16 text-center">
+        <div className="text-2xl md:text-4xl">Performances Loading...</div>
+        <div className="font-rubik-marker-hatch text-4xl md:text-8xl">Almost Showtime</div>
+      </ComingSoon>
+
       <TornEdge
         upSectionColor="#000000"
         edgeColor="#ffffff"
@@ -52,11 +58,22 @@ const Home = () => {
         downSectionColor="#000000"
       />
       <Merch />
-      <Gallery />
-      {/* Remove when whole page is done, this is for poster scroll */}
-      <div className="h-[200vh]"></div>
       <TornEdge
-        upSectionColor="#ffffff"
+        upSectionColor="#000000"
+        edgeColor="#ffffff"
+        className="overflow-hidden"
+        downSectionColor="#faf5ee"
+      />
+
+      <ComingSoon className="gap-12 py-16 text-center">
+        <div className="font-medieval-sharp text-6xl font-bold">Through the Lens</div>
+        <div className="font-rubik-wet-paint text-4xl md:text-8xl">Worth the wait</div>
+      </ComingSoon>
+
+      {/* //TODO */}
+      {/* <Gallery /> */}
+      <TornEdge
+        upSectionColor="var(--color-cream)"
         edgeColor="#ffffff"
         className="overflow-hidden"
         downSectionColor="#000000"

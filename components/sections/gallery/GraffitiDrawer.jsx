@@ -1,12 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { IconX } from '@tabler/icons-react';
 import { useRef, useEffect } from 'react';
 import { useBrushstroke } from '@/hooks/useBrushstroke';
 import Image from 'next/image';
 
-export default function GraffitiDrawer({ yearData, isOpen, onClose }) {
+export default function GraffitiDrawer({ yearData, isOpen, onClose, dir = 'right' }) {
   const canvasRef = useRef(null);
   const bgCanvasRef = useRef(null);
   const containerRef = useRef(null);
@@ -58,7 +58,7 @@ export default function GraffitiDrawer({ yearData, isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex h-full w-full justify-end overflow-hidden"
+      className={`fixed inset-0 z-50 flex h-full w-full ${dir === 'right' ? 'justify-end' : 'justify-start'} overflow-hidden`}
       data-lenis-prevent
       onClick={onClose}
     >

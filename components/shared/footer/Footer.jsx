@@ -5,6 +5,7 @@ import React from 'react';
 import footer from '@/assets/images/shared/footer.webp';
 import Image from 'next/image';
 import { Instagram, Facebook } from 'lucide-react';
+import DripIcon from '../Icons/DripIcon';
 
 const Footer2 = () => {
   return (
@@ -13,7 +14,7 @@ const Footer2 = () => {
       <Image src={footer} alt="Footer Background" fill className="object-cover" priority />
 
       {/* Black Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/60" />
 
       {/* Top Gradient */}
       <div className="absolute top-0 right-0 left-0 h-24 bg-linear-to-b from-black to-transparent" />
@@ -30,7 +31,10 @@ const Footer2 = () => {
             rel="noopener noreferrer"
             className="p-3 transition-opacity hover:opacity-80"
           >
-            <Instagram size={32} className="text-white" />
+            <DripIcon color="pink" icon={Instagram} iconColor="white" className="">
+              {/* <Instagram size={32} className="text-white" /> */}
+              <Instagram size={32} className="text-white" />
+            </DripIcon>
           </a>
           <a
             href="https://www.facebook.com/gcettsstudentsunion2k18?mibextid=rS40aB7S9Ucbxw6v"
@@ -38,7 +42,9 @@ const Footer2 = () => {
             rel="noopener noreferrer"
             className="p-3 transition-opacity hover:opacity-80"
           >
-            <Facebook size={32} className="text-white" />
+            <DripIcon color="blue" icon={Facebook} iconColor="white" className="">
+              <Facebook size={32} className="text-white" />
+            </DripIcon>
           </a>
         </div>
 

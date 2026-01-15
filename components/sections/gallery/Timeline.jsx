@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import GraffitiDrawer from './GraffitiDrawer';
 import BrushRevealImage from '@/components/ui/BrushRevealImage';
 import PosterImage from '@/assets/images/home/poster-dummy.jpg';
@@ -20,27 +20,32 @@ const timelineData = [
 
 export default function VerticalTimeline() {
   const [selectedYear, setSelectedYear] = useState(null);
+  const [direction, setDirection] = useState('right');
   return (
-    <div className="bg-cream text-charcoal relative min-h-screen overflow-x-hidden px-10 py-20">
+    <div className="text-charcoal relative min-h-screen overflow-x-hidden px-10 py-20">
       {/* Background Texture */}
       <div className="pointer-events-none fixed inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10" />
 
       {/* Central Spine - Clean Line */}
       <div className="absolute top-0 left-1/2 block h-full w-0.5 -translate-x-1/2 bg-orange-600/20" />
 
-      <div className="relative z-10 flex flex-col gap-16 md:gap-32">
+      <div className="relative z-10 flex flex-col gap-8">
         {timelineData.map((item, index) => (
           <TimelineGroup
             key={item.year}
             item={item}
             isLeft={index % 2 === 0}
-            onOpen={() => setSelectedYear(item)}
+            onOpen={() => {
+              setSelectedYear(item);
+              setDirection('right');
+            }}
           />
         ))}
       </div>
       <GraffitiDrawer
         yearData={selectedYear}
         isOpen={!!selectedYear}
+        dir={direction}
         onClose={() => setSelectedYear(null)}
       />
     </div>
@@ -89,7 +94,7 @@ function TimelineGroup({ item, isLeft, onOpen }) {
               alt={item.year}
               className="h-full w-full transition-all duration-500 group-hover:grayscale"
             />
-            <div className="from-cream/90 pointer-events-none absolute inset-0 bg-linear-to-t via-transparent to-transparent" />
+            <div className="from-sand/90 pointer-events-none absolute inset-0 bg-linear-to-t via-transparent to-transparent" />
 
             {/* Graffiti Year - Clean & Readable */}
             <h3 className="text-charcoal font-protest-revolution absolute bottom-4 left-4 text-6xl font-bold drop-shadow-md select-none">
