@@ -3,6 +3,7 @@ import { ContactUsLink } from '@/components/sections/home/hero/ContactUsLink';
 import { SplashGif } from '@/components/sections/home/hero/SplashGif';
 import { CountdownTimer } from '@/components/sections/home/hero/Timer';
 import Logo from '@/public/hero/texavision.svg';
+import { useEffect, useState } from 'react';
 
 import { ScrollDownArrow } from '@/components/sections/home/hero/ScrollDownArrow';
 import { useIsMobile } from '@/hooks/useMobile';
@@ -12,12 +13,20 @@ const CONTACT_LINK = 'https://cal.com/texavision-2k26/30min';
 const TIMER_TARGET = '2026-01-25T00:00:00+05:30';
 
 const Hero = () => {
+  const [render, setRender] = useState(false);
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setRender(true);
+    }, DELAY + 2500);
+    return () => clearTimeout(timer);
+  });
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <div
-        className="absolute top-0 left-0 -z-10 h-full w-full bg-cover bg-center brightness-40"
+        className="absolute inset-0 -z-10 aspect-auto h-full w-full bg-cover bg-center bg-no-repeat brightness-40"
         style={{ backgroundImage: `url('hero/bg.jpg')` }}
       ></div>
 
@@ -51,14 +60,21 @@ const Hero = () => {
         bgImage="hero/4/img.jpg"
       />
 
-      <div className="hero absolute z-100 flex h-screen w-full flex-col items-center justify-center gap-10">
-        <Logo className="h-auto w-[80vw] max-w-200" />
-        <CountdownTimer target={TIMER_TARGET} delay={DELAY} />
-        <div />
-        <ContactUsLink link={CONTACT_LINK} delay={DELAY} />
-      </div>
+      {!render ? (
+        <div className={`hero flex h-screen w-full flex-col items-center justify-center`}>
+          <Logo className="h-auto w-[80vw] max-w-200" />
+        </div>
+      ) : (
+        <div
+          className={`absolute z-100 flex h-screen w-full flex-col items-center justify-center bg-black/60 pt-30 opacity-0 transition-opacity duration-1000 ${render && 'opacity-100'}`}
+        >
+          <Logo className="mb-10 h-auto w-[80vw] max-w-200 fill-white/90" />
+          <CountdownTimer target={TIMER_TARGET} />
+          <ContactUsLink link={CONTACT_LINK} />
+        </div>
+      )}
 
-      <ScrollDownArrow delay={DELAY} />
+      <ScrollDownArrow delay={DELAY + 2000} />
     </div>
   );
 };

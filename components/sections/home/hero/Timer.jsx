@@ -56,7 +56,7 @@ const CountdownTimer = ({ target, delay = 0 }) => {
     <div
       role="timer"
       aria-live="polite"
-      className={`flex h-20 opacity-0 transition-opacity duration-1000 ${render && 'opacity-100'}`}
+      className={`flex opacity-0 transition-opacity duration-1000 ${render && 'opacity-100'}`}
     >
       {UNITS.map((unit) => (
         <div
@@ -66,11 +66,11 @@ const CountdownTimer = ({ target, delay = 0 }) => {
         >
           <span
             data-value
-            className="outline-text rotate-x-0 text-3xl text-transparent transition-all duration-400 sm:text-4xl md:text-6xl"
+            className="outline-text rotate-x-0 text-2xl text-transparent transition-all duration-400 sm:text-4xl md:text-6xl"
           >
             {pad2(time[unit.key])}
           </span>
-          <span data-label className="text-2xl">
+          <span data-label className="text-xl sm:text-2xl">
             {unit.label}
           </span>
         </div>
