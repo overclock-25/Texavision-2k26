@@ -48,7 +48,7 @@ export default function GalleryStacked() {
   }, [selectedYear]);
 
   return (
-    <div className="font-grindy-brush relative min-h-screen w-full px-4 py-20 md:px-10">
+    <div className="font-grindy-brush relative min-h-screen w-full px-4 py-20 pb-32 md:px-10">
       {/* Year Grid */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-12 gap-y-24 sm:grid-cols-2 lg:grid-cols-3">
         {galleryData.map((item) => (

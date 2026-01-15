@@ -6,7 +6,14 @@ import React from 'react';
 
 const Gallery = () => {
   return (
-    <div className="from-sand to-cream bg-linear-to-br pt-24">
+    <div
+      className="from-sand to-cream relative bg-linear-to-b pt-24"
+      style={{
+        backgroundImage: 'url(/svgs/soft.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <SpriteHeader
         heading="Gallery"
         spriteSrc="/spr-header.png"
@@ -23,8 +30,8 @@ const Gallery = () => {
         version="rotated"
         upSectionColor="#000000"
         edgeColor="#faf7f2"
-        className="overflow-hidden"
-        downSectionColor="#faf5ee"
+        className="absolute bottom-0 w-full overflow-hidden"
+        downSectionColor="transparent"
       />
     </div>
   );
