@@ -31,6 +31,7 @@ const SpriteHeader = ({
   textColorClass = 'text-gray-900',
   brushColor = null,
   orientation = 'horizontal',
+  textSizeClass = 'text-large',
   className = '',
 }) => {
   const containerRef = useRef(null);
@@ -134,7 +135,7 @@ const SpriteHeader = ({
 
       {/* Text layer */}
       <h2
-        className={`${textColorClass} text-large relative z-10 font-bold tracking-widest uppercase mix-blend-normal`}
+        className={`${textColorClass} ${textSizeClass} relative z-10 font-bold tracking-widest uppercase mix-blend-normal`}
       >
         {heading}
       </h2>

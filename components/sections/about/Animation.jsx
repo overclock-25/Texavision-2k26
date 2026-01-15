@@ -16,7 +16,7 @@ const Animation = () => {
           frames={24}
           orientation="vertical"
           frameAspectRatio={1280 / 720}
-          brushColor="white" // Custom brush color
+          brushColor="#00b8db" // Custom brush color
           bgColorClass="#ffffff"
           textColorClass="text-black"
           duration={1.5}
@@ -24,16 +24,20 @@ const Animation = () => {
       </div>
       <div className="mx-auto max-w-4xl px-4 text-center text-white/70">
         <p className="text-base sm:text-lg md:text-xl">
-          Since our inception, <span className="text-purple-rich">Texavision 2k26</span> has been
-          committed to fostering innovation and creativity among students. Our journey began with a
-          small group of <span className="text-purple-rich">passionate individuals </span>
+          Since our inception,{' '}
+          <span className="text-purple-rich font-grindy-brush text-[18px]">Texavision 2k26</span>{' '}
+          has been committed to fostering innovation and creativity among students. Our journey
+          began with a small group of{' '}
+          <span className="text-purple-rich font-grindy-brush text-[18px]">
+            passionate individuals{' '}
+          </span>
           who envisioned a platform where ideas could flourish. Over the years, we have grown into a
-          <span className="text-purple-rich"> vibrant community</span>,{' '}
-          <span className="text-cyan-500">organizing events</span>,{' '}
-          <span className="text-blue-500">workshops</span>, and{' '}
-          <span className="text-orange-500">hackathons</span> that inspire and empower students to
-          push the boundaries of technology and design. Join us as we continue to explore new
-          horizons and make a lasting impact in the world of tech.
+          <span className="text-purple-rich font-grindy-brush text-[18px]"> vibrant community</span>
+          , <span className="font-grindy-brush text-[18px] text-cyan-500">organizing events</span>,{' '}
+          <span className="font-grindy-brush text-[18px] text-blue-500">workshops</span>, and{' '}
+          <span className="font-grindy-brush text-[18px] text-orange-500">hackathons</span> that
+          inspire and empower students to push the boundaries of technology and design. Join us as
+          we continue to explore new horizons and make a lasting impact in the world of tech.
         </p>
       </div>
       <div className="relative mx-auto flex h-[500px] w-full flex-col items-center justify-center gap-8 rounded-lg px-4 py-20 sm:h-[400px] sm:gap-12 md:h-[500px] md:flex-row md:gap-16 lg:h-[600px] lg:gap-20">
