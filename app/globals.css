@@ -1,6 +1,30 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+* {
+  cursor: none !important;
+  scrollbar-width: thin;
+  scrollbar-color: dark black;
+  -ms-overflow-style: thin;
+}
+
+a,
+button,
+input,
+textarea,
+select,
+[role='button'],
+[data-cursor='hover'] {
+  cursor: none !important;
+}
+
+iframe,
+video,
+canvas,
+svg {
+  cursor: none !important;
+}
+
 :root {
   /* =========================
      Neutrals & Base Colors
