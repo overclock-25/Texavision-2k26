@@ -1,50 +1,13 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import Link from 'next/link';
-import BrushLink from './BrushLink';
 import Logo from '@/public/svgs/tex-graffiti.svg';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { ChartNoAxesGantt, CircleX } from 'lucide-react';
-
-const MenuIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="h-8 w-8"
-  >
-    <line x1="4" x2="20" y1="12" y2="12" />
-    <line x1="4" x2="20" y1="6" y2="6" />
-    <line x1="4" x2="20" y1="18" y2="18" />
-  </svg>
-);
-
-const CloseIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="h-8 w-8"
-  >
-    <path d="M18 6 6 18" />
-    <path d="m6 6 12 12" />
-  </svg>
-);
+import { AnimatePresence, motion } from 'motion/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import BrushLink from './BrushLink';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -73,7 +36,7 @@ const Navbar = () => {
     const timer = setTimeout(() => {
       setShow(true);
       setIsIntro(false);
-    }, 3000);
+    }, 6000);
 
     return () => clearTimeout(timer);
   }, [isHome]);

@@ -1,9 +1,10 @@
-import './globals.css';
-import '../assets/stylesheets/css/utils.css';
-import fonts from './font';
-import SmoothScrolling from '@/wrappers/SmoothScrolling';
+import CustomCursor from '@/components/shared/utils/CustomCursor';
 import Footer from '@/components/shared/footer/Footer';
 import Navbar from '@/components/shared/navbar/Navbar';
+import SmoothScrolling from '@/wrappers/SmoothScrolling';
+import '../assets/stylesheets/css/utils.css';
+import fonts from './font';
+import './globals.css';
 
 export const metadata = {
   title: 'Texavision-2k26',
@@ -32,7 +33,8 @@ const fontsArrayVars = [
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${fontsArrayVars.join(' ')} antialiased`}>
+      <body className={`${fontsArrayVars.join(' ')} cursor-none antialiased`}>
+        <CustomCursor />
         <SmoothScrolling>
           <Navbar />
           {children}
