@@ -7,31 +7,31 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className="bg-vanilla-cream flex flex-col">
+    <div className="flex flex-col">
       <Hero />
-      <TornEdge0
+      {/* <TornEdge0
         upSectionColor="#000000"
         edgeColor="#ffffff"
         className="-mt-px overflow-hidden"
         downSectionColor="#f3f4f6"
-      />
+      /> */}
       <Animation />
-      <TornEdge0
-        upSectionColor="#f3f4f6"
+      {/* <TornEdge0
+        upSectionColor="#000000"
         edgeColor="#ffffff"
         className="-mt-px overflow-hidden"
         downSectionColor="#fef3c7"
-      />
+      /> */}
       <Union />
-      <TornEdge0
+      {/* <TornEdge0
         upSectionColor="#fef3c7"
         edgeColor="#ffffff"
         className="-mt-px overflow-hidden"
         downSectionColor="#faf5ee"
-      />
+      /> */}
       <Developers />
       <TornEdge0
-        upSectionColor="#faf5ee"
+        upSectionColor="#d4d4d4"
         edgeColor="#ffffff"
         className="-mt-px overflow-hidden"
         downSectionColor="#000000"
