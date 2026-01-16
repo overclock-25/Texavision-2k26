@@ -31,7 +31,7 @@ const Footer2 = () => {
             rel="noopener noreferrer"
             className="p-3 transition-opacity hover:opacity-80"
           >
-            <DripIcon color="pink" icon={Instagram} iconColor="white" className="">
+            <DripIcon color="#dd2a7b" icon={Instagram} iconColor="white" className="">
               {/* <Instagram size={32} className="text-white" /> */}
               <Instagram size={32} className="text-white" />
             </DripIcon>
