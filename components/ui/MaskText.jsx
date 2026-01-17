@@ -3,7 +3,7 @@ import React from 'react';
 const MaskText = ({ title, size = 'medium', maskBgUrl = '/images/team/paint-drip.png' }) => {
   const sizeClass = {
     small: 'text-5xl md:text-6xl',
-    medium: 'text-7xl lg:text-7xl',
+    medium: 'text-6xl lg:text-7xl',
     large: 'text-8xl md:text-[148px]',
   };
 
@@ -17,7 +17,7 @@ const MaskText = ({ title, size = 'medium', maskBgUrl = '/images/team/paint-drip
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-full text-center">
       <h2
         className={`graffiti-text graffiti absolute inset-0 mb-6 text-center leading-none font-bold text-white drop-shadow-[2px_2px_0_white] ${sizeClass[size]}`}
       >

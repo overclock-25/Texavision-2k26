@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export function proxy(request) {
   const { pathname } = request.nextUrl;
 
-  const comingSoon = ['/contact', '/gallery'];
+  const comingSoon = ['/gallery'];
 
   if (comingSoon.includes(pathname)) {
     const url = request.nextUrl.clone();
