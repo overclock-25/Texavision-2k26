@@ -83,7 +83,7 @@ const BrushRevealMap = ({ className = '' }) => {
     <div ref={containerRef} className={`relative overflow-hidden rounded-2xl ${className}`}>
       {/* The actual map iframe */}
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.8651447832344!2d88.34262731495953!3d22.749089985109847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89d4f17d99e51%3A0x36c067b0cd6c5d10!2sGovernment%20College%20of%20Engineering%20and%20Textile%20Technology%2C%20Serampore!5e0!3m2!1sen!2sin!4v1640000000000!5m2!1sen!2sin"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.379291663788!2d88.35093467530574!3d22.75130117936489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89b0332447d5b%3A0x783ac24cb2925342!2sGovernment%20College%20of%20Engineering%20%26%20Textile%20Technology!5e0!3m2!1sen!2sin!4v1768714071943!5m2!1sen!2sin"
         width="100%"
         height="450"
         style={{ border: 0 }}

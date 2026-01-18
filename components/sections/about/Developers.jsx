@@ -51,7 +51,7 @@ const Developers = () => {
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
       <div className="absolute inset-0 -z-5 h-1/2 w-full bg-linear-to-b from-[#d4d4d4] to-transparent md:h-1/2" />
-      <div className="flex flex-col gap-10 bg-transparent px-16 py-14">
+      <div className="flex flex-col gap-10 bg-transparent px-4 py-8 md:px-16 md:py-14">
         <div className="relative mx-auto w-fit">
           {/* <h2 className="text-[#333333] mx-auto mb-8 w-full text-center text-6xl font-bold md:w-3/4 md:text-6xl">
             Meet the Developers
@@ -82,13 +82,13 @@ const Developers = () => {
                 />
               </div>
               <div className="mt-4 flex flex-col items-center">
-                <span className="flex gap-4">
+                {/* <span className="flex gap-4">
                   <h5 className="font-gillian-joe! mt-3 text-[20px]! text-amber-700">
                     {devs[index].name}
                   </h5>
-                </span>
+                </span> */}
                 <h3 className="text-center text-4xl font-semibold md:text-4xl">
-                  {devs[index].user}
+                  {devs[index].name}
                 </h3>
                 {/* <p className="mt-2 text-center">
                   {devs[index].role}

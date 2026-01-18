@@ -14,20 +14,24 @@ const useCursor = () => {
     };
 
     const handleMouseEnter = (e) => {
-      const isInteractive =
-        e.target.matches('a, button, [role="button"], input, textarea, select') ||
-        e.target.closest('a, button, [role="button"]');
-      if (isInteractive) {
-        setIsHovering(true);
+      if (e.target instanceof Element) {
+        const isInteractive =
+          e.target.matches('a, button, [role="button"], input, textarea, select') ||
+          e.target.closest('a, button, [role="button"]');
+        if (isInteractive) {
+          setIsHovering(true);
+        }
       }
     };
 
     const handleMouseLeave = (e) => {
-      const isInteractive =
-        e.target.matches('a, button, [role="button"], input, textarea, select') ||
-        e.target.closest('a, button, [role="button"]');
-      if (isInteractive) {
-        setIsHovering(false);
+      if (e.target instanceof Element) {
+        const isInteractive =
+          e.target.matches('a, button, [role="button"], input, textarea, select') ||
+          e.target.closest('a, button, [role="button"]');
+        if (isInteractive) {
+          setIsHovering(false);
+        }
       }
     };
 
