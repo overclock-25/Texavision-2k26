@@ -348,17 +348,21 @@ const ContactInfo = () => {
           <div className="flex flex-wrap items-center justify-center gap-8">
             <MagneticSocialButton
               href="https://www.instagram.com/texavision_official/"
+              target="_blank"
+              rel="noopener noreferrer"
               icon={Instagram}
               label="Instagram"
               bgColor="#E4405F"
             />
             <MagneticSocialButton
-              href="https://www.facebook.com/gcettsstudentsunion2k18"
+              href="https://www.facebook.com/gcettsstudentsunion2k18?mibextid=rS40aB7S9Ucbxw6v"
+              target="_blank"
+              rel="noopener noreferrer"
               icon={Facebook}
               label="Facebook"
               bgColor="#1877F2"
             />
-            <MagneticSocialButton
+            {/* <MagneticSocialButton
               href="https://twitter.com/texavision"
               icon={Twitter}
               label="Twitter"
@@ -369,7 +373,7 @@ const ContactInfo = () => {
               icon={Youtube}
               label="YouTube"
               bgColor="#FF0000"
-            />
+            /> */}
             {/* <DripIcon color='#000000' icon={Facebook} iconColor = 'white' /> */}
           </div>
         </div>

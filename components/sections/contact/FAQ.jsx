@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronDown } from 'lucide-react';
 import SpriteHeader from '@/components/shared/texts/SpriteHeader';
 import Image from 'next/image';
+import Header from '@/components/shared/texts/Header';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -122,7 +123,7 @@ const FAQ = () => {
   return (
     <section ref={sectionRef} className="relative bg-transparent px-4 py-20 md:px-8 lg:px-16">
       <div className="mx-auto max-w-3xl">
-        <SpriteHeader
+        {/* <SpriteHeader
           heading="Got Questions?"
           spriteSrc="/spr-header.png"
           frames={24}
@@ -132,6 +133,12 @@ const FAQ = () => {
           bgColorClass="bg-transparent"
           textColorClass="text-vanilla-cream"
           duration={1.5}
+        /> */}
+        <Header
+          heading="Got Questions?"
+          bgColorClass={'bg-transparent'}
+          textColorClass={'text-black !text-xl md:!text-3xl'}
+          brushColor={'#ffffff'}
         />
         <p className="faq-title mx-auto mb-12 max-w-2xl text-center text-lg text-white/70">
           We&apos;ve got answers! Check out our frequently asked questions.

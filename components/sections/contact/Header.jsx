@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import RandomShapeRevealCanvas from '@/components/shared/utils/RandomShapeRevealCanvas';
 import GraffitiText from './GraffitiText';
+import { ContactUsLink } from '../home/hero/ContactUsLink';
 // import PaintDripCanvas from './PaintDripCanvas';
 // import FloatingElements from './FloatingElements';
 
@@ -69,12 +70,13 @@ const Header = ({
       </div>
 
       {/* Subtitle with animation */}
-      <p
+      {/* <p
         ref={subtitleRef}
         className={`relative z-20 max-w-2xl px-4 text-center text-xl opacity-0 md:text-2xl ${subtitleColor}`}
       >
         {subtitle}
-      </p>
+      </p> */}
+      <ContactUsLink ref={subtitleRef} link="https://cal.com/texavision-2k26/30min" />
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2">
