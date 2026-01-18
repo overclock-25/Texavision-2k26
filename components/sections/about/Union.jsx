@@ -31,7 +31,7 @@ const union = [
     imageUrl: '/images/union/ush.jpg',
   },
   {
-    name: 'Saiyad Aayan Rahman',
+    name: 'Syed Ayaan Rahman',
     department: 'IT',
     imageUrl: '/images/union/aay.jpg',
   },
